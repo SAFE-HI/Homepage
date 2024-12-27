@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import styled, { keyframes, css } from "styled-components";
-import SecondFunction from "./Secondfunction";
+import SecondFunction from "./SecondFunction";
 
 const Container = styled.div`
   width: 100%;
