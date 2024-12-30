@@ -42,7 +42,7 @@ const MenuContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 60px;
 `;
 
 const Menu = styled.p`

@@ -1,34 +1,27 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled, { css, keyframes } from "styled-components";
+import useOnScreen from "../../hooks/useOnScreen";
 
-const fadeInUp = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
-
-const AnimatedContainer = styled.div`
+const SlideUpDiv = styled.div`
+  /* 초기 상태 (화면에 보이지 않을 때) */
   opacity: 0;
-  transform: translateY(50px);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
+  transform: translateY(30px);
 
+  /* transition으로 in/out 모두 자연스럽게 */
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+  /* isVisible 이 true 일 때 최종 상태 */
   ${({ $isVisible }) =>
     $isVisible &&
     css`
       opacity: 1;
       transform: translateY(0);
-      animation: ${fadeInUp} 0.8s ease-out forwards;
     `}
 `;
 
-const Container = styled(AnimatedContainer)`
+const Container = styled(SlideUpDiv)`
   width: 100%;
   box-sizing: border-box;
   padding: 12%;
@@ -39,6 +32,7 @@ const Container = styled(AnimatedContainer)`
   align-items: center;
   h1 {
     font-family: "Gmarket Sans";
+    color: ${({ theme }) => theme.colors.mainText};
     font-weight: 600;
     font-size: 38px;
   }
@@ -113,29 +107,7 @@ const ImageContainer = styled.div`
 `;
 
 const EndContainer = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
+  const [ref, isVisible] = useOnScreen({ threshold: 0.2 });
 
   return (
     <Container ref={ref} $isVisible={isVisible}>

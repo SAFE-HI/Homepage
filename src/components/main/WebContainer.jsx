@@ -1,15 +1,24 @@
 import React, { useEffect, useState, useRef } from "react";
-import styled, { css, keyframes } from "styled-components";
+import styled, { css } from "styled-components";
+import useOnScreen from "../../hooks/useOnScreen";
 
-const fadeInUp = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+const SlideUpDiv = styled.div`
+  /* 초기 상태 (화면에 보이지 않을 때) */
+  opacity: 0;
+  transform: translateY(30px);
+
+  /* transition으로 in/out 모두 자연스럽게 */
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+
+  /* isVisible 이 true 일 때 최종 상태 */
+  ${({ $isVisible }) =>
+    $isVisible &&
+    css`
+      opacity: 1;
+      transform: translateY(0);
+    `}
 `;
 
 const StartContainer = styled.div`
@@ -66,30 +75,14 @@ const Logo = styled.div`
   align-items: center;
 `;
 
-const AnimatedContainer = styled.div`
-  opacity: 0;
-  transform: translateY(50px);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-
-  ${({ $isVisible }) =>
-    $isVisible &&
-    css`
-      opacity: 1;
-      transform: translateY(0);
-      animation: ${fadeInUp} 0.8s ease-out forwards;
-    `}
-`;
-
-const HeaderContainer = styled(AnimatedContainer)`
+const HeaderContainer = styled(SlideUpDiv)`
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding: 40px;
 `;
 
-const Section = styled(AnimatedContainer)`
+const Section = styled(SlideUpDiv)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -99,17 +92,18 @@ const Section = styled(AnimatedContainer)`
   box-sizing: border-box;
   border-radius: 20px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     flex-direction: column;
     gap: 20px;
   }
 `;
 
 const Content = styled.div`
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding-right: 20px;
   gap: 10px;
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     padding-right: 0;
     text-align: center;
   }
@@ -120,7 +114,7 @@ const Number = styled.h1`
   font-weight: bold;
   color: ${({ theme }) => theme.colors.gray3};
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     font-size: 80px;
     left: 0;
     top: 0;
@@ -131,11 +125,12 @@ const Number = styled.h1`
 const Title = styled.h2`
   font-size: 28px;
   font-weight: 600;
-  color: #333;
+  color: ${({ theme }) => theme.colors.mainText};
   margin-bottom: 10px;
+  line-height: 120%;
   font-family: "Gmarket Sans";
   font-weight: 600;
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     font-size: 24px;
   }
 `;
@@ -145,21 +140,20 @@ const Description = styled.p`
   color: #555;
   line-height: 1.6;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     font-size: 16px;
   }
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
   display: flex;
   justify-content: flex-end;
 
   img {
-    max-width: 100%;
+    width: 450px;
     border-radius: 10px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       width: 100%;
       height: auto;
     }
@@ -167,44 +161,16 @@ const ImageContainer = styled.div`
 `;
 
 const WebContainer = () => {
-  const [visibleSections, setVisibleSections] = useState([]);
-
-  const sectionRefs = useRef([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = sectionRefs.current.indexOf(entry.target);
-            setVisibleSections((prev) => {
-              const updated = [...prev];
-              updated[index] = true;
-              return updated;
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      sectionRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
-
+  const [headerRef, headerIsVisible] = useOnScreen({ threshold: 0.2 });
+  const [firstContentRef, firstContentIsVisible] = useOnScreen({
+    threshold: 0.2,
+  });
+  const [secondContentRef, secondContentIsVisible] = useOnScreen({
+    threshold: 0.2,
+  });
   return (
     <StartContainer>
-      <HeaderContainer
-        ref={(el) => (sectionRefs.current[0] = el)}
-        $isVisible={visibleSections[0]}
-      >
+      <HeaderContainer ref={headerRef} $isVisible={headerIsVisible}>
         <Logo>
           <img src="/logo.svg" alt="safe-hi" />
           <p>SAFE-HI WEB</p>
@@ -217,10 +183,7 @@ const WebContainer = () => {
           </p>
         </Header>
       </HeaderContainer>
-      <Section
-        ref={(el) => (sectionRefs.current[1] = el)}
-        $isVisible={visibleSections[1]}
-      >
+      <Section ref={firstContentRef} $isVisible={firstContentIsVisible}>
         <Content>
           <Number>01</Number>
           <Title>
@@ -236,10 +199,7 @@ const WebContainer = () => {
           <img src="/webMockup.png" />
         </ImageContainer>
       </Section>
-      <Section
-        ref={(el) => (sectionRefs.current[2] = el)}
-        $isVisible={visibleSections[2]}
-      >
+      <Section ref={secondContentRef} $isVisible={secondContentIsVisible}>
         <Content>
           <Number>02</Number>
           <Title>고독사 위험을 선제적으로 관리해요</Title>

@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import styled, { keyframes, css } from "styled-components";
+import useOnScreen from "../../hooks/useOnScreen";
 
 const fadeInUp = keyframes`
   0% {
@@ -123,7 +124,6 @@ const Events = styled.div`
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, transparent, transparent);
     ${({ $isVisible }) =>
       $isVisible &&
       css`
@@ -144,7 +144,7 @@ const Event = styled.div`
 
   h4 {
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
     color: ${({ theme }) => theme.colors.subText};
   }
 
@@ -170,8 +170,7 @@ const Event = styled.div`
 `;
 
 const History = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
+  const [ref, isVisible] = useOnScreen({ threshold: 0.2 });
 
   const historyData = [
     { date: "2024.12.06", description: "사회보장정보원 표창장 수상" },
@@ -188,27 +187,6 @@ const History = () => {
       description: "한전MCS 사회문제 해결 인턴형 프로그램 활동",
     },
   ];
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
 
   return (
     <AnimatedContainer ref={ref} $isVisible={isVisible}>

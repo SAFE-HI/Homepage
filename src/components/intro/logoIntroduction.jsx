@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  padding: 0 50px;
+  padding: 80px 150px;
   display: flex;
   flex-direction: column;
   gap: 70px;
@@ -35,6 +35,7 @@ const Logo = styled.div`
   }
   p {
     text-align: center;
+    line-height: 150%;
     color: ${({ theme }) => theme.colors.gray6};
   }
 `;

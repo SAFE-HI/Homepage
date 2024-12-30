@@ -68,8 +68,22 @@ const Button = styled.button`
   }
 `;
 
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+`;
+
 export default function IntroductionPage() {
   const [activeMenu, setActiveMenu] = useState("logo");
+
+  const handleScroll = (sectionId) => {
+    setActiveMenu(sectionId);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -82,27 +96,35 @@ export default function IntroductionPage() {
         </HeaderContainer>
         <ButtonContainer>
           <Button
-            onClick={() => setActiveMenu("logo")}
+            onClick={() => handleScroll("logo")}
             $isActive={activeMenu === "logo"}
           >
             로고
           </Button>
           <Button
-            onClick={() => setActiveMenu("team")}
+            onClick={() => handleScroll("team")}
             $isActive={activeMenu === "team"}
           >
             팀
           </Button>
           <Button
-            onClick={() => setActiveMenu("history")}
+            onClick={() => handleScroll("history")}
             $isActive={activeMenu === "history"}
           >
             연혁
           </Button>
         </ButtonContainer>
-        {activeMenu === "logo" && <LogoIntroduction />}
-        {activeMenu === "team" && <TeamIntroduction />}
-        {activeMenu === "history" && <HistoryIntroduction />}
+        <ContentContainer>
+          <div id="logo">
+            <LogoIntroduction />
+          </div>
+          <div id="team">
+            <TeamIntroduction />
+          </div>
+          <div id="history">
+            <HistoryIntroduction />
+          </div>
+        </ContentContainer>
       </Container>
       <Footer />
     </>
