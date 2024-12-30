@@ -20,21 +20,24 @@ const bounceAnimation = keyframes`
 
 const Background = styled.div`
   width: 100vw;
-  /* min-height: 100vh; */
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 37.02%, #fdd8da 107.54%);
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, #fdd8da 95%);
   overflow: hidden;
 `;
 
 const ContentContainer = styled.div`
   padding: 150px 10%;
-  padding-top: 190px;
+  padding-top: 220px;
   display: flex;
   flex-direction: column;
   gap: 60px;
-  @media (max-width: 1000px) {
-    padding-top: 200px;
+  @media (max-width: 1100px) {
+    padding-top: 220px;
     padding-bottom: 100px;
     align-items: center;
+  }
+  @media (max-width: 600px) {
+    gap: 30px;
   }
 `;
 
@@ -42,6 +45,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
+
   h1 {
     color: ${({ theme }) => theme.colors.mainText};
     font-size: 50px;
@@ -49,26 +53,34 @@ const Content = styled.div`
     line-height: 120%;
     margin: 0;
     white-space: nowrap;
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
       font-size: 45px;
-      line-height: 120%;
+      text-align: center;
+    }
+    @media (max-width: 650px) {
+      font-size: 35px;
+      text-align: center;
+    }
+    @media (max-width: 500px) {
+      font-size: 25px;
       text-align: center;
     }
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     align-items: center;
   }
 `;
 
 const Mockup = styled.img`
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 80px;
+  right: 0;
   width: 100vw;
-  height: calc(100vh - 80px); /* 헤더를 제외한 높이 */
-  object-fit: cover; /* 이미지 비율을 유지하면서 공간을 채움 */
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  object-fit: cover;
   z-index: -1; /* 콘텐츠 뒤에 위치 */
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     visibility: hidden;
   }
 `;
@@ -79,9 +91,11 @@ const ImageContainer = styled.div`
 `;
 
 const More = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 15px;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
   align-items: center;
   padding-bottom: 30px;
   cursor: pointer;
@@ -118,7 +132,7 @@ const ButtonContainer = styled.div`
   p {
     color: ${({ theme }) => theme.colors.gray5};
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     align-items: center;
   }
 `;

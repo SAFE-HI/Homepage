@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
   flex: 1 0 0;
   cursor: pointer;
   p {
-    color: #595353;
+    color: ${({ theme }) => theme.colors.sub1};
     font-family: "GmarketSansMedium";
     font-size: 20px;
     font-weight: 600;

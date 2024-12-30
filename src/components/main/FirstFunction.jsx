@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
@@ -26,7 +27,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 1100px;
+  height: 1000px;
 `;
 
 const HeaderContainer = styled(SlideUpDiv)`
@@ -56,72 +57,73 @@ const ImgContainer = styled.div`
   flex-direction: row;
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
 `;
 
-const Comment = styled(SlideUpDiv).attrs({ as: "p" })`
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 35px;
-  padding-bottom: 50px;
-  font-size: 24px;
-  line-height: 150%;
-  box-sizing: border-box;
-`;
-
-const FirstImage = styled(SlideUpDiv).attrs({ as: "img" })`
-  position: absolute;
-  left: 0;
-  bottom: 0;
-
-  height: 800px;
-`;
-
-const SecondImage = styled(SlideUpDiv).attrs({ as: "img" })`
-  position: absolute;
+const FirstImage = styled(SlideUpDiv).attrs(({ as = "img" }) => ({ as }))`
   right: 0;
   top: 0;
-  height: 800px;
+  height: 750px;
+  top: 50%;
+  left: 50%;
 `;
 
-export default function SecondFunction() {
+const FirstComment = styled(SlideUpDiv).attrs({ as: "p" })`
+  position: absolute;
+  top: 30%;
+  line-height: 150%;
+  right: 0;
+  font-size: 22px;
+  color: ${({ theme }) => theme.colors.mainText};
+`;
+
+const SecondComment = styled(SlideUpDiv).attrs({ as: "p" })`
+  position: absolute;
+  bottom: 30%;
+  text-align: right;
+  line-height: 150%;
+  left: 0;
+  font-size: 22px;
+  color: ${({ theme }) => theme.colors.mainText};
+`;
+
+export default function FirstFunction() {
   const [headerRef, headerVisible] = useOnScreen({ threshold: 0.2 });
-  const [firstImageRef, firstImageVisible] = useOnScreen({
+  const [imageRef, imageVisible] = useOnScreen({ threshold: 0.2 });
+  const [firstCommentRef, firstCommentVisible] = useOnScreen({
     threshold: 0.2,
   });
-  const [secondImageRef, secondImageVisible] = useOnScreen({
-    threshold: 0.2,
-  });
-  const [commentRef, commentVisible] = useOnScreen({
+  const [secondCommentRef, secondCommentVisible] = useOnScreen({
     threshold: 0.2,
   });
 
   return (
     <Container>
       <HeaderContainer ref={headerRef} $isVisible={headerVisible}>
-        <p>AI 추천 대화 가이드라인 제공</p>
+        <p>AI 복지 정책 추천</p>
         <h1>
-          간단한 스몰토크로 <br />
-          신뢰감 UP
+          더 나은 복지 서비스를 <br />
+          제공받으세요!
         </h1>
       </HeaderContainer>
       <ImgContainer>
         <FirstImage
-          ref={firstImageRef}
-          $isVisible={firstImageVisible}
-          src="/체크리스트.png"
-          alt="체크리스트"
+          ref={imageRef}
+          $isVisible={imageVisible}
+          src="/AI_복지_정책.png"
+          alt="AI 복지정책"
         />
-        <SecondImage
-          ref={secondImageRef}
-          $isVisible={secondImageVisible}
-          src="/스몰토크.png"
-          alt="스몰토크"
-        />
-        <Comment ref={commentRef} $isVisible={commentVisible}>
-          지난 대화를 바탕으로 <br />
-          자연스럽게 체크리스트를 진행해요
-        </Comment>
+        <FirstComment ref={firstCommentRef} $isVisible={firstCommentVisible}>
+          AI를 활용하여 <br />
+          복지 대상자의 대화 내용을 <br />
+          실시간으로 분석
+        </FirstComment>
+        <SecondComment ref={secondCommentRef} $isVisible={secondCommentVisible}>
+          맞춤형 복지 서비스 추천 <br />
+          그리고 추천 이유 분석까지 <br />
+          한번에!
+        </SecondComment>
       </ImgContainer>
     </Container>
   );

@@ -42,39 +42,28 @@ const StartContainer = styled.div`
   justify-content: center;
 `;
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  p {
-    margin: 0;
-    color: #fb5457;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 400;
-  }
-  img {
-    width: 40px;
-  }
-`;
-
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  padding: 80px 50px;
-  background-color: ${({ theme }) => theme.colors.sub3};
   border-radius: 20px;
   h3 {
     height: 100%;
     text-align: center;
     color: ${({ theme }) => theme.colors.mainText};
-    font-size: 30px;
+    font-size: 35px;
     line-height: 160%;
-    @media (max-width: 1000px) {
-      font-size: 22px;
+    font-weight: 500;
+    white-space: nowrap;
+    @media (max-width: 1100px) {
+      font-size: 30px;
+    }
+    @media (max-width: 800px) {
+      font-size: 25px;
+    }
+    @media (max-width: 600px) {
+      font-size: 18px;
     }
   }
 `;
