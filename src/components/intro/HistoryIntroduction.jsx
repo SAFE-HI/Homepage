@@ -15,6 +15,7 @@ const Title = styled.div`
     padding-left: 25px;
     padding-top: 20px;
     font-size: 35px;
+    color: ${({ theme }) => theme.colors.mainText};
   }
 `;
 
