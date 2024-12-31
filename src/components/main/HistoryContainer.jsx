@@ -62,7 +62,14 @@ const HeaderContainer = styled.div`
     font-size: 32px;
     line-height: 160%;
     text-align: center;
+    white-space: nowrap;
     color: ${({ theme }) => theme.colors.mainText};
+    @media (max-width: 1024px) {
+      font-size: 24px;
+    }
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -78,9 +85,21 @@ const Header = styled.div`
     font-family: "Gmarket Sans";
     font-size: 16px;
     font-weight: 400;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
   img {
     width: 40px;
+    @media (max-width: 1024px) {
+      width: 32px;
+    }
+    @media (max-width: 768px) {
+      width: 24px;
+    }
   }
 `;
 
@@ -89,6 +108,12 @@ const Content = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 750px;
+  @media (max-width: 1024px) {
+    width: 600px;
+  }
+  @media (max-width: 768px) {
+    width: 400px;
+  }
 `;
 
 const TimelineItem = styled.div`
@@ -101,6 +126,12 @@ const TimelineItem = styled.div`
     bottom: auto;
     height: 50%;
   }
+  @media (max-width: 1024px) {
+    gap: 10px;
+  }
+  @media (max-width: 768px) {
+    gap: 5px;
+  }
 `;
 
 const Year = styled.div`
@@ -110,6 +141,12 @@ const Year = styled.div`
   text-align: center;
   flex-shrink: 0;
   width: 80px;
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const Events = styled.div`
@@ -130,6 +167,12 @@ const Events = styled.div`
         animation: ${drawLine} 1s ease forwards;
       `}
   }
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
 `;
 
 const Event = styled.div`
@@ -142,15 +185,35 @@ const Event = styled.div`
   flex-direction: column;
   gap: 15px;
 
+  @media (max-width: 1024px) {
+    padding: 0 16px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 12px;
+  }
+
   h4 {
     margin: 0;
-    font-size: 15px;
+    font-size: 16px;
     color: ${({ theme }) => theme.colors.subText};
+    @media (max-width: 1024px) {
+      font-size: 12px;
+    }
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 
   p {
     font-size: 20px;
     color: ${({ theme }) => theme.colors.mainText};
+    white-space: nowrap;
+    @media (max-width: 1024px) {
+      font-size: 18px;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
   transition: scale 0.3s ease;
   opacity: 0;

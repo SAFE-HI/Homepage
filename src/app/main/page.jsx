@@ -31,12 +31,12 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 60px;
-  @media (max-width: 1100px) {
+  @media (max-width: 1024px) {
     padding-top: 220px;
     padding-bottom: 100px;
     align-items: center;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     gap: 30px;
   }
 `;
@@ -53,11 +53,11 @@ const Content = styled.div`
     line-height: 120%;
     margin: 0;
     white-space: nowrap;
-    @media (max-width: 1100px) {
+    @media (max-width: 1024px) {
       font-size: 45px;
       text-align: center;
     }
-    @media (max-width: 650px) {
+    @media (max-width: 768px) {
       font-size: 35px;
       text-align: center;
     }
@@ -66,7 +66,7 @@ const Content = styled.div`
       text-align: center;
     }
   }
-  @media (max-width: 1100px) {
+  @media (max-width: 1024px) {
     align-items: center;
   }
 `;
@@ -80,7 +80,7 @@ const Mockup = styled.img`
   overflow: hidden;
   object-fit: cover;
   z-index: -1; /* 콘텐츠 뒤에 위치 */
-  @media (max-width: 1100px) {
+  @media (max-width: 1024px) {
     visibility: hidden;
   }
 `;
@@ -132,7 +132,7 @@ const ButtonContainer = styled.div`
   p {
     color: ${({ theme }) => theme.colors.gray5};
   }
-  @media (max-width: 1100px) {
+  @media (max-width: 1024px) {
     align-items: center;
   }
 `;

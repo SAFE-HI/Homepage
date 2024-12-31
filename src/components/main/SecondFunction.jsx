@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
@@ -22,11 +22,19 @@ const SlideUpDiv = styled.div`
 `;
 
 const Container = styled.div`
-  width: 1000px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 1100px;
+  align-items: flex-start;
+  gap: 30px;
+  @media (min-width: 1024px) {
+    width: 1000px;
+    height: 1100px;
+  }
+  @media (min-width: 768px) and (max-width: 1024px) {
+    width: 750px;
+    height: 880px;
+  }
 `;
 
 const HeaderContainer = styled(SlideUpDiv)`
@@ -40,6 +48,12 @@ const HeaderContainer = styled(SlideUpDiv)`
     line-height: 120%;
     font-weight: 400;
     color: ${({ theme }) => theme.colors.sub1};
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   h1 {
@@ -47,6 +61,12 @@ const HeaderContainer = styled(SlideUpDiv)`
     line-height: 120%;
     font-weight: 500;
     color: ${({ theme }) => theme.colors.mainText};
+    @media (max-width: 1024px) {
+      font-size: 34px;
+    }
+    @media (max-width: 768px) {
+      font-size: 28px;
+    }
   }
 `;
 
@@ -56,32 +76,76 @@ const ImgContainer = styled.div`
   flex-direction: row;
   width: 100%;
   height: 100%;
+  gap: 20px;
+  @media (max-width: 768px) {
+    overflow-x: scroll; /* 가로 스크롤 */
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+  }
 `;
 
 const Comment = styled(SlideUpDiv).attrs({ as: "p" })`
+  /* 모바일에서는 숨김 */
+  @media (max-width: 768px) {
+    display: none;
+  }
+  @media (max-width: 1024px) {
+    font-size: 18px;
+    padding: 25px;
+    padding-bottom: 40px;
+  }
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 35px;
-  padding-bottom: 50px;
+  padding: 25px;
+  padding-bottom: 60px;
   font-size: 24px;
   line-height: 150%;
   box-sizing: border-box;
+`;
+
+const PhoneComment = styled(SlideUpDiv).attrs({ as: "p" })`
+  /* 데스크톱에서는 숨김 */
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    word-break: keep-all;
+    color: ${({ theme }) => theme.colors.mainText};
+  }
 `;
 
 const FirstImage = styled(SlideUpDiv).attrs({ as: "img" })`
   position: absolute;
   left: 0;
   bottom: 0;
-
-  height: 800px;
+  height: 750px;
+  @media (max-width: 1024px) {
+    height: 600px;
+  }
+  @media (max-width: 768px) {
+    position: relative;
+    height: 500px;
+  }
 `;
 
 const SecondImage = styled(SlideUpDiv).attrs({ as: "img" })`
   position: absolute;
   right: 0;
   top: 0;
-  height: 800px;
+  height: 750px;
+  @media (max-width: 1024px) {
+    height: 600px;
+  }
+  @media (max-width: 768px) {
+    position: relative;
+    height: 500px;
+  }
 `;
 
 export default function SecondFunction() {
@@ -93,6 +157,9 @@ export default function SecondFunction() {
     threshold: 0.2,
   });
   const [commentRef, commentVisible] = useOnScreen({
+    threshold: 0.2,
+  });
+  const [phoneCommentRef, phoneCommentVisible] = useOnScreen({
     threshold: 0.2,
   });
 
@@ -123,6 +190,10 @@ export default function SecondFunction() {
           자연스럽게 체크리스트를 진행해요
         </Comment>
       </ImgContainer>
+      <PhoneComment ref={phoneCommentRef} $isVisible={phoneCommentVisible}>
+        지난 대화를 바탕으로 <br />
+        자연스럽게 체크리스트를 진행해요
+      </PhoneComment>
     </Container>
   );
 }

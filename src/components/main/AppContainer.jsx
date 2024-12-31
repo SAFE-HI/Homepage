@@ -32,6 +32,14 @@ const Container = styled.div`
   padding: 100px;
   gap: 100px;
   align-items: center;
+  @media (max-width: 1024px) {
+    gap: 80px;
+    padding: 80px;
+  }
+  @media (max-width: 768px) {
+    gap: 60px;
+    padding: 40px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -40,6 +48,12 @@ const ContentContainer = styled.div`
   flex-direction: column;
   gap: 300px;
   align-items: center;
+  @media (max-width: 1024px) {
+    gap: 200px;
+  }
+  @media (max-width: 768px) {
+    gap: 150px;
+  }
 `;
 
 const HeaderContainer = styled(SlideUpDiv)`
@@ -57,18 +71,27 @@ const Header = styled.div`
     margin: 0;
     color: #fb5457;
     text-align: center;
-    font-family: "Gmarket Sans";
     font-size: 40px;
     font-weight: 600;
+    @media (max-width: 1024px) {
+      font-size: 32px;
+    }
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   }
   p {
     color: #101010;
     text-align: center;
-    font-family: "Gmarket Sans";
     font-size: 18px;
-    font-style: normal;
     font-weight: 300;
-    line-height: 25px;
+    white-space: nowrap;
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -80,11 +103,15 @@ const Logo = styled.div`
     color: #fb5457;
     text-align: center;
     font-family: "Gmarket Sans";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
     margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
   display: flex;
   flex-direction: column;
