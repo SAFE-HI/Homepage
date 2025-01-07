@@ -13,7 +13,7 @@ const Container = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  margin-top: 80px;
+  margin-top: 70px;
   display: flex;
   height: 200px;
   flex-direction: column;
