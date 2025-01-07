@@ -31,10 +31,12 @@ const Container = styled(SlideUpDiv)`
   position: relative;
   align-items: center;
   h1 {
-    font-family: "Gmarket Sans";
+    text-align: center;
+    word-break: keep-all;
     color: ${({ theme }) => theme.colors.mainText};
     font-weight: 600;
-    font-size: 38px;
+    font-size: 32px;
+    line-height: 160%;
   }
 `;
 
@@ -95,14 +97,18 @@ const Item = styled.div`
 const ImageContent = styled.img`
   height: 60px;
   @media (max-width: 768px) {
-    height: 50px;
+    height: 40px;
+  }
+  @media (max-width: 500px) {
+    height: 30px;
   }
 `;
 
 const ImageContainer = styled.div`
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  justify-content: space-between;
   padding: 20px 0;
 `;
 

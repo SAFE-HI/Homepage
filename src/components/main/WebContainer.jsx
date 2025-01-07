@@ -149,9 +149,9 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.colors.mainText};
   margin-bottom: 10px;
   line-height: 120%;
-  font-family: "Gmarket Sans";
   font-weight: 600;
-  @media (max-width: 900px) {
+  word-break: keep-all;
+  @media (max-width: 1024px) {
     font-size: 24px;
   }
 `;
@@ -160,8 +160,8 @@ const Description = styled.p`
   font-size: 16px;
   color: #555;
   line-height: 1.6;
-
-  @media (max-width: 900px) {
+  word-break: keep-all;
+  @media (max-width: 1024px) {
     font-size: 16px;
   }
 `;
@@ -223,7 +223,10 @@ const WebContainer = () => {
       <Section ref={secondContentRef} $isVisible={secondContentIsVisible}>
         <Content>
           <Number>02</Number>
-          <Title>고독사 위험을 선제적으로 관리해요</Title>
+          <Title>
+            고독사 위험을 <br />
+            선제적으로 관리해요
+          </Title>
           <Description>
             5초마다 실시간으로 분석하여 대상자의 생활 패턴을 즉시
             모니터링합니다.
