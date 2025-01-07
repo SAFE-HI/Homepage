@@ -9,11 +9,17 @@ const HeaderContainer = styled.header`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  height: 80px;
+  height: 70px;
   padding: 0 50px;
   position: fixed;
   z-index: 100;
   background-color: white;
+  @media (max-width: 1024px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 `;
 
 const LogoContainer = styled.div`

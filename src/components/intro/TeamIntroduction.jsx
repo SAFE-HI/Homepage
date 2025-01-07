@@ -7,6 +7,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 70px;
+  @media (max-width: 1024px) {
+    padding: 80px;
+  }
+  @media (max-width: 768px) {
+    padding: 40px;
+  }
 `;
 
 const Title = styled.div`
@@ -16,6 +22,16 @@ const Title = styled.div`
     padding-top: 20px;
     font-size: 35px;
     color: ${({ theme }) => theme.colors.mainText};
+    @media (max-width: 1024px) {
+      font-size: 32px;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+    @media (max-width: 768px) {
+      font-size: 24px;
+      padding-left: 18px;
+      padding-top: 12px;
+    }
   }
 `;
 
@@ -23,6 +39,12 @@ const Circle = styled.img`
   width: 40px;
   position: absolute;
   z-index: -1;
+  @media (max-width: 1024px) {
+    width: 35px;
+  }
+  @media (max-width: 768px) {
+    width: 30px;
+  }
 `;
 
 const ContentContainer = styled.div`

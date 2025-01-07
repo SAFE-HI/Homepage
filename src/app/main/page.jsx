@@ -8,6 +8,7 @@ import ScrollToTop from "../../components/ScrollToTop";
 import EndContainer from "../../components/main/EndContainer";
 import Footer from "../../components/Footer";
 import History from "../../components/main/HistoryContainer";
+import EffectContainer from "../../components/main/EffectContainer";
 
 const bounceAnimation = keyframes`
   0%, 100% {
@@ -76,7 +77,7 @@ const Mockup = styled.img`
   top: 80px;
   right: 0;
   width: 100vw;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 70px);
   overflow: hidden;
   object-fit: cover;
   z-index: -1; /* 콘텐츠 뒤에 위치 */
@@ -188,6 +189,7 @@ export default function Main() {
       <History />
       <AppContainer />
       <WebContainer />
+      <EffectContainer />
       <EndContainer />
       <Footer />
       <ScrollToTop />

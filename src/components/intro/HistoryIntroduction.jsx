@@ -7,6 +7,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 70px;
+  @media (max-width: 1024px) {
+    padding: 80px;
+  }
+  @media (max-width: 768px) {
+    padding: 40px;
+  }
 `;
 
 const Title = styled.div`
@@ -16,6 +22,16 @@ const Title = styled.div`
     padding-top: 20px;
     font-size: 35px;
     color: ${({ theme }) => theme.colors.mainText};
+    @media (max-width: 1024px) {
+      font-size: 32px;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+    @media (max-width: 768px) {
+      font-size: 24px;
+      padding-left: 18px;
+      padding-top: 12px;
+    }
   }
 `;
 
@@ -23,12 +39,19 @@ const Circle = styled.img`
   width: 40px;
   position: absolute;
   z-index: -1;
+  @media (max-width: 1024px) {
+    width: 35px;
+  }
+  @media (max-width: 768px) {
+    width: 30px;
+  }
 `;
 
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  white-space: nowrap;
 `;
 
 const TimelineItem = styled.div`
@@ -42,6 +65,12 @@ const TimelineItem = styled.div`
     bottom: auto;
     height: 50%;
   }
+  @media (max-width: 1024px) {
+    gap: 15px;
+  }
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
 `;
 
 const Year = styled.div`
@@ -50,7 +79,12 @@ const Year = styled.div`
   color: ${({ theme }) => theme.colors.sub1};
   text-align: center;
   flex-shrink: 0;
-  width: 80px;
+  @media (max-width: 1024px) {
+    font-size: 22px;
+  }
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Events = styled.div`
@@ -67,6 +101,12 @@ const Events = styled.div`
     width: 2px;
     background: linear-gradient(to bottom, #fb5457, #fb5457);
   }
+  @media (max-width: 1024px) {
+    gap: 40px;
+  }
+  @media (max-width: 768px) {
+    gap: 30px;
+  }
 `;
 
 const Event = styled.div`
@@ -78,18 +118,36 @@ const Event = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  @media (max-width: 1024px) {
+    padding: 0 16px;
+  }
+  @media (max-width: 768px) {
+    padding: 0 12px;
+  }
 
   h4 {
     margin: 0;
     font-size: 15px;
     color: ${({ theme }) => theme.colors.subText};
     white-space: nowrap;
+    @media (max-width: 1024px) {
+      font-size: 12px;
+    }
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 
   p {
     font-size: 20px;
     color: ${({ theme }) => theme.colors.mainText};
     white-space: nowrap;
+    @media (max-width: 1024px) {
+      font-size: 18px;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 `;
 

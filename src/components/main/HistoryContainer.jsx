@@ -127,10 +127,10 @@ const TimelineItem = styled.div`
     height: 50%;
   }
   @media (max-width: 1024px) {
-    gap: 10px;
+    gap: 15px;
   }
   @media (max-width: 768px) {
-    gap: 5px;
+    gap: 10px;
   }
 `;
 
@@ -140,7 +140,6 @@ const Year = styled.div`
   color: ${({ theme }) => theme.colors.sub1};
   text-align: center;
   flex-shrink: 0;
-  width: 80px;
   @media (max-width: 1024px) {
     font-size: 22px;
   }

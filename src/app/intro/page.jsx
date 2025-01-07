@@ -92,7 +92,7 @@ export default function IntroductionPage() {
         <HeaderContainer>
           <h1>Introduction</h1>
           <hr />
-          <p>안심하이 한줄 소개 멘트</p>
+          <p>돌봄이 부담이 되지 않는 세상, 안심하이가 만들어갑니다.</p>
         </HeaderContainer>
         <ButtonContainer>
           <Button

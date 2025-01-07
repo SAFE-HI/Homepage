@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import styled, { css, keyframes } from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
 const SlideUpDiv = styled.div`

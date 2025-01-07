@@ -7,6 +7,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 70px;
+  @media (max-width: 1024px) {
+    padding: 80px;
+  }
+  @media (max-width: 768px) {
+    padding: 40px;
+  }
 `;
 
 const Title = styled.div`
@@ -16,6 +22,16 @@ const Title = styled.div`
     padding-top: 20px;
     font-size: 35px;
     color: ${({ theme }) => theme.colors.mainText};
+    @media (max-width: 1024px) {
+      font-size: 32px;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+    @media (max-width: 768px) {
+      font-size: 24px;
+      padding-left: 18px;
+      padding-top: 12px;
+    }
   }
 `;
 
@@ -23,6 +39,12 @@ const Circle = styled.img`
   width: 40px;
   position: absolute;
   z-index: -1;
+  @media (max-width: 1024px) {
+    width: 35px;
+  }
+  @media (max-width: 768px) {
+    width: 30px;
+  }
 `;
 
 const Logo = styled.div`
@@ -33,6 +55,12 @@ const Logo = styled.div`
   gap: 20px;
   img {
     width: 200px;
+    @media (max-width: 1024px) {
+      width: 180px;
+    }
+    @media (max-width: 768px) {
+      width: 150px;
+    }
   }
   p {
     text-align: center;
@@ -46,6 +74,23 @@ const BoxContainer = styled.div`
   padding: 30px 50px;
   border-radius: 10px;
   margin: 10px;
+  @media (max-width: 1024px) {
+    padding: 30px 40px;
+  }
+  @media (max-width: 768px) {
+    padding: 30px;
+  }
+  p {
+    word-break: keep-all;
+    font-size: 18px;
+    line-height: 160%;
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
 `;
 
 const ColorContainer = styled.div`
@@ -55,6 +100,13 @@ const ColorContainer = styled.div`
   gap: 30px;
   h2 {
     padding-left: 25px;
+    font-size: 24px;
+    @media (max-width: 1024px) {
+      font-size: 22px;
+    }
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
   }
   width: 100%;
 `;
@@ -62,8 +114,9 @@ const ColorContainer = styled.div`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 60px;
   margin: 0 auto;
+  width: 80%;
+  justify-content: space-between;
 `;
 
 const ColorChip = styled.div`
@@ -74,11 +127,23 @@ const ColorChip = styled.div`
   p {
     font-size: 16px;
     font-family: Inter;
+    @media (max-width: 1024px) {
+      font-size: 12px;
+    }
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
   }
   h3 {
     font-size: 20px;
     font-weight: 600;
     font-family: Inter;
+    @media (max-width: 1024px) {
+      font-size: 16px;
+    }
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
   gap: 10px;
 `;
@@ -87,6 +152,14 @@ const Color = styled.div`
   width: 150px;
   height: 150px;
   background-color: ${({ theme, color }) => theme.colors[color]};
+  @media (max-width: 1024px) {
+    width: 120px;
+    height: 120px;
+  }
+  @media (max-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
 `;
 
 export default function LogoIntroduction() {
