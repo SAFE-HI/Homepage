@@ -16,6 +16,7 @@ const HeaderContainer = styled.div`
   margin-top: 70px;
   display: flex;
   height: 200px;
+  padding: 20px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -39,6 +40,9 @@ const HeaderContainer = styled.div`
     font-family: "Gmarket Sans";
     font-weight: 300;
     color: white;
+    line-height: 160%;
+    text-align: center;
+    word-break: keep-all;
   }
 `;
 

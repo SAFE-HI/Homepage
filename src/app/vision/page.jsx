@@ -2,10 +2,10 @@
 import Header from "../../components/Header";
 import styled from "styled-components";
 import Footer from "../../components/Footer";
+import VisionContent from "@/components/vision/VisionContent";
 
 const Container = styled.div`
   width: 100%;
-  padding-bottom: 150px;
 `;
 
 const HeaderContainer = styled.div`
@@ -15,6 +15,7 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
   background-color: ${({ theme }) => theme.colors.sub1};
   gap: 20px;
   h1 {
@@ -35,6 +36,9 @@ const HeaderContainer = styled.div`
     font-family: "Gmarket Sans";
     font-weight: 300;
     color: white;
+    line-height: 160%;
+    text-align: center;
+    word-break: keep-all;
   }
 `;
 
@@ -46,8 +50,12 @@ export default function VisionPage() {
         <HeaderContainer>
           <h1>Vision</h1>
           <hr />
-          <p>안심하이 비전 한줄</p>
+          <p>
+            IT 기술을 통해 복지 사각지대까지 효율적으로 지원하고, 한정된 자원을
+            최대한 활용해 더 나은 사회를 실현하고자 합니다.
+          </p>
         </HeaderContainer>
+        <VisionContent />
       </Container>
       <Footer />
     </>
