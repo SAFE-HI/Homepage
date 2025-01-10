@@ -12,7 +12,7 @@ const Container = styled.div`
   padding-bottom: 150px;
 `;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   margin-top: 70px;
   display: flex;
   height: 200px;
@@ -25,9 +25,6 @@ const HeaderContainer = styled.div`
   h1 {
     font-weight: 600;
     color: white;
-  }
-  img {
-    width: 300px;
   }
   hr {
     width: 20px;

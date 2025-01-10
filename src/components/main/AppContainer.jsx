@@ -34,11 +34,13 @@ const Container = styled.div`
   align-items: center;
   @media (max-width: 1024px) {
     gap: 80px;
-    padding: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
   @media (max-width: 768px) {
     gap: 60px;
-    padding: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 `;
 
@@ -67,7 +69,7 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  h1 {
+  h3 {
     margin: 0;
     color: #fb5457;
     text-align: center;
@@ -77,7 +79,7 @@ const Header = styled.div`
       font-size: 32px;
     }
     @media (max-width: 768px) {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
   p {
@@ -96,14 +98,11 @@ const Header = styled.div`
 `;
 
 const Logo = styled.div`
-  img {
-    width: 40px;
-  }
   p {
+    margin: 0;
     color: #fb5457;
     text-align: center;
     font-family: "Gmarket Sans";
-    margin: 0;
     font-size: 16px;
     font-weight: 400;
     @media (max-width: 1024px) {
@@ -111,6 +110,16 @@ const Logo = styled.div`
     }
     @media (max-width: 768px) {
       font-size: 12px;
+    }
+  }
+  img {
+    width: 40px;
+    object-fit: contain;
+    @media (max-width: 1024px) {
+      width: 32px;
+    }
+    @media (max-width: 768px) {
+      width: 24px;
     }
   }
   display: flex;
@@ -127,11 +136,11 @@ const AppContainer = () => {
     <Container>
       <HeaderContainer ref={headerRef} $isVisible={headerVisible}>
         <Logo>
-          <img src="/logo.svg" alt="safe-hi" />
+          <img src="/logo.svg" alt="안심하이 로고" />
           <p>SAFE-HI APP</p>
         </Logo>
         <Header>
-          <h1>동행 매니저를 위한 안심하이</h1>
+          <h3>동행 매니저를 위한 안심하이</h3>
           <p>현장에서의 돌봄 매니저가 사용할 수 있는 AI 앱 서비스입니다.</p>
         </Header>
       </HeaderContainer>

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
@@ -59,7 +60,7 @@ const Header = styled.div`
     }
   }
 
-  h1 {
+  h4 {
     font-size: 40px;
     line-height: 120%;
     font-weight: 500;
@@ -84,15 +85,22 @@ const ImgContainer = styled.div`
   gap: 20px;
 `;
 
-const FirstImage = styled(SlideUpDiv).attrs(({ as = "img" }) => ({ as }))`
+const FirstImage = styled(SlideUpDiv)`
+  /* 높이는 반응형으로 변화 */
   height: 750px;
-  top: 50%;
-  left: 50%;
   @media (max-width: 1024px) {
     height: 600px;
   }
   @media (max-width: 768px) {
     height: 500px;
+  }
+  position: relative;
+  img {
+    top: 50%;
+    left: 50%;
+    object-fit: contain;
+    width: auto; /* 가로 비율 자동 */
+    height: 100%; /* 부모의 높이만큼 채움 */
   }
 `;
 
@@ -129,7 +137,7 @@ const SecondComment = styled(SlideUpDiv).attrs({ as: "p" })`
   }
 `;
 
-const CombinedComment = styled(SlideUpDiv).attrs({ as: "h5" })`
+const CombinedComment = styled(SlideUpDiv).attrs({ as: "h4" })`
   /* 데스크톱에서는 숨김 */
   display: none;
 
@@ -162,10 +170,10 @@ export default function FirstFunction() {
       <HeaderContainer ref={headerRef} $isVisible={headerVisible}>
         <Header>
           <p>AI 복지 정책 추천</p>
-          <h1>
+          <h4>
             더 나은 복지 서비스를 <br />
             제공받으세요!
-          </h1>
+          </h4>
         </Header>
 
         <CombinedComment
@@ -177,12 +185,14 @@ export default function FirstFunction() {
         </CombinedComment>
       </HeaderContainer>
       <ImgContainer>
-        <FirstImage
-          ref={imageRef}
-          $isVisible={imageVisible}
-          src="/AI_복지_정책.png"
-          alt="AI 복지정책"
-        />
+        <FirstImage ref={imageRef} $isVisible={imageVisible}>
+          <Image
+            src="/AI_복지_정책.png"
+            alt="안심하이 기능 1: AI 복지 정책 제공"
+            width={500}
+            height={750}
+          />
+        </FirstImage>
         <FirstComment ref={firstCommentRef} $isVisible={firstCommentVisible}>
           AI를 활용하여 <br />
           복지 대상자의 대화 내용 <br />

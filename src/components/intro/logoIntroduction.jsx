@@ -38,6 +38,7 @@ const Title = styled.div`
 const Circle = styled.img`
   width: 40px;
   position: absolute;
+  object-fit: contain;
   z-index: -1;
   @media (max-width: 1024px) {
     width: 35px;
@@ -55,6 +56,7 @@ const Logo = styled.div`
   gap: 20px;
   img {
     width: 200px;
+    object-fit: contain;
     @media (max-width: 1024px) {
       width: 180px;
     }

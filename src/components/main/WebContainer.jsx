@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+"use client";
+import Image from "next/image";
+import React from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
@@ -31,10 +33,14 @@ const Container = styled.div`
   flex-direction: column;
   gap: 50px;
   @media (max-width: 1024px) {
-    padding: 80px;
+    gap: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
   }
   @media (max-width: 768px) {
-    padding: 40px;
+    gap: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
 `;
 
@@ -43,7 +49,7 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  h1 {
+  h3 {
     margin: 0;
     color: #fb5457;
     text-align: center;
@@ -54,7 +60,7 @@ const Header = styled.div`
       font-size: 32px;
     }
     @media (max-width: 768px) {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
   p {
@@ -74,14 +80,11 @@ const Header = styled.div`
 `;
 
 const Logo = styled.div`
-  img {
-    width: 40px;
-  }
   p {
+    margin: 0;
     color: #fb5457;
     text-align: center;
     font-family: "Gmarket Sans";
-    margin: 0;
     font-size: 16px;
     font-weight: 400;
     @media (max-width: 1024px) {
@@ -89,6 +92,16 @@ const Logo = styled.div`
     }
     @media (max-width: 768px) {
       font-size: 12px;
+    }
+  }
+  img {
+    width: 40px;
+    object-fit: contain;
+    @media (max-width: 1024px) {
+      width: 32px;
+    }
+    @media (max-width: 768px) {
+      width: 24px;
     }
   }
   display: flex;
@@ -170,11 +183,12 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  img {
-    width: 450px;
+  /* 이미지 래퍼에 대한 스타일 */
+  .web-image {
+    width: 450px; /* 정적 크기, 미디어쿼리로 조정 */
     border-radius: 10px;
-
-    @media (max-width: 900px) {
+    object-fit: contain; /* 보존 */
+    @media (max-width: 768px) {
       width: 100%;
       height: auto;
     }
@@ -193,11 +207,11 @@ const WebContainer = () => {
     <Container>
       <HeaderContainer ref={headerRef} $isVisible={headerIsVisible}>
         <Logo>
-          <img src="/logo.svg" alt="safe-hi" />
+          <img src="/logo.svg" alt="안심하이 로고" />
           <p>SAFE-HI WEB</p>
         </Logo>
         <Header>
-          <h1>안심 케어 매니저를 위한 관리 시스템</h1>
+          <h3>안심 케어 매니저를 위한 관리 시스템</h3>
           <p>
             대면하는 동행 매니저와 간편하게 소통하고 관리할 수 있는 웹
             서비스입니다.
@@ -217,7 +231,13 @@ const WebContainer = () => {
           </Description>
         </Content>
         <ImageContainer>
-          <img src="/webMockup.png" />
+          <Image
+            className="web-image"
+            src="/webMockup.png"
+            alt="안심하이 웹 기능 1: AI 감정 분석으로 심리 상태 객관적 파악"
+            width={450}
+            height={300}
+          />
         </ImageContainer>
       </Section>
       <Section ref={secondContentRef} $isVisible={secondContentIsVisible}>
@@ -233,7 +253,13 @@ const WebContainer = () => {
           </Description>
         </Content>
         <ImageContainer>
-          <img src="/webMockup2.png" />
+          <Image
+            className="web-image"
+            src="/webMockup2.png"
+            alt="안심하이 웹 기능 2: LED ON/OFF 데이터 모니터링 "
+            width={450}
+            height={300}
+          />
         </ImageContainer>
       </Section>
     </Container>

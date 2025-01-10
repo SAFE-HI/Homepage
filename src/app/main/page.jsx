@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Header from "../../components/Header";
 import styled, { keyframes } from "styled-components";
 import Start from "../../components/main/StartContainer";
@@ -26,7 +27,7 @@ const Background = styled.div`
   overflow: hidden;
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled.main`
   padding: 150px 10%;
   padding-top: 220px;
   display: flex;
@@ -72,14 +73,13 @@ const Content = styled.div`
   }
 `;
 
-const Mockup = styled.img`
+const Mockup = styled.div`
   position: absolute;
   top: 80px;
   right: 0;
   width: 100vw;
   height: calc(100vh - 70px);
   overflow: hidden;
-  object-fit: cover;
   z-index: -1; /* 콘텐츠 뒤에 위치 */
   @media (max-width: 1024px) {
     visibility: hidden;
@@ -104,6 +104,7 @@ const More = styled.div`
 
 const MoreIcon = styled.img`
   width: 50px;
+  object-fit: contain;
   animation: ${bounceAnimation} 1.5s infinite ease-in-out;
 `;
 
@@ -119,10 +120,6 @@ const Box = styled.div`
   &:hover {
     background-color: rgba(0, 0, 0, 1);
   }
-`;
-
-const ButtonImage = styled.img`
-  height: 28px;
 `;
 
 const ButtonContainer = styled.div`
@@ -165,24 +162,35 @@ export default function Main() {
             <p>*추후 서비스 예정입니다.</p>
             <ImageContainer>
               <Box>
-                <ButtonImage
+                <Image
                   src="/googlePlay.svg"
-                  alt="구글 플레이스토어 바로가기"
+                  alt="구글 플레이스토어 로고"
+                  width={126}
+                  height={28}
                 />
               </Box>
               <Box>
-                <ButtonImage
+                <Image
                   src="/appStore.svg"
                   alt="애플 앱 스토어 바로가기"
+                  width={123}
+                  height={28}
                 />
               </Box>
             </ImageContainer>
           </ButtonContainer>
-
-          <Mockup src="/background.png" alt="mockup" />
+          <Mockup>
+            <Image
+              src="/background.png"
+              alt="안심하이 서비스 앱 사진"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
+            />
+          </Mockup>
         </ContentContainer>
         <More onClick={scrollToNext}>
-          <MoreIcon src="/moreIcon.svg" alt="더보기" />
+          <MoreIcon src="/moreIcon.svg" alt="더보기 버튼" />
         </More>
       </Background>
       <Start id="next-section" />

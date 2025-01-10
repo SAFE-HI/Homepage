@@ -8,7 +8,7 @@ const Container = styled.div`
   width: 100%;
 `;
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.header`
   margin-top: 70px;
   display: flex;
   height: 200px;
@@ -24,6 +24,7 @@ const HeaderContainer = styled.div`
   }
   img {
     width: 300px;
+    object-fit: contain;
   }
   hr {
     width: 20px;

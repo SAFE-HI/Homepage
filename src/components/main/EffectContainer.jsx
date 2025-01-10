@@ -21,7 +21,7 @@ const SlideUpDiv = styled.div`
     `}
 `;
 
-const Container = styled(SlideUpDiv)`
+const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding: 12%;
@@ -30,6 +30,9 @@ const Container = styled(SlideUpDiv)`
   gap: 80px;
   position: relative;
   align-items: center;
+`;
+
+const Header = styled(SlideUpDiv)`
   h1 {
     text-align: center;
     word-break: keep-all;
@@ -37,6 +40,12 @@ const Container = styled(SlideUpDiv)`
     font-weight: 600;
     font-size: 32px;
     line-height: 160%;
+    @media (max-width: 1024px) {
+      font-size: 24px;
+    }
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
   }
 `;
 
@@ -63,6 +72,7 @@ const Content = styled.div`
 const Item = styled(SlideUpDiv)`
   img {
     height: 120px;
+    object-fit: contain;
   }
   h2 {
     font-size: 24px;
@@ -94,6 +104,9 @@ const Item = styled(SlideUpDiv)`
   &:hover {
     transform: scale(1.1);
   }
+  @media (max-width: 768px) {
+    background-color: ${({ theme }) => theme.colors.sub3};
+  }
 `;
 
 const EffectContainer = () => {
@@ -103,15 +116,17 @@ const EffectContainer = () => {
   const [content3Ref, content3IsVisible] = useOnScreen({ threshold: 0.2 });
   const [content4Ref, content4IsVisible] = useOnScreen({ threshold: 0.2 });
   return (
-    <Container ref={ref} $isVisible={isVisible}>
-      <h1>왜 안심하이가 필요할까요?</h1>
+    <Container>
+      <Header ref={ref} $isVisible={isVisible}>
+        <h1>왜 안심하이가 필요할까요?</h1>
+      </Header>
       <ContentContainer>
         <Content>
           <Item ref={content1Ref} $isVisible={content1IsVisible}>
             <img src="/1-icon.svg" alt="한국사회보장정보원" />
             <h2>
-              위험군 집중 관리를 통한 <br />
-              고독사 예방
+              위험군 집중 관리를 <br />
+              통한 고독사 예방
             </h2>
             <p>
               고독사 위험군의 상태를 정밀하게 파악하고 조기에 관리하여 고독사

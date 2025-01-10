@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -54,6 +55,7 @@ const Content = styled.div`
   cursor: pointer;
   img {
     height: 80px;
+    object-fit: contain;
   }
   background-color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.sub3 : "transparent"};
@@ -82,6 +84,7 @@ const Title = styled.h1`
 const Logo = styled.div`
   img {
     width: 40px;
+    object-fit: contain;
   }
   p {
     color: #fb5457;
@@ -158,7 +161,7 @@ export default function VisionContent() {
     <Container>
       <HeaderContainer>
         <Logo>
-          <img src="/logo.svg" alt="safe-hi" />
+          <img src="/logo.svg" alt="안심하이 로고" />
           <p>비전</p>
         </Logo>
         <Vision>

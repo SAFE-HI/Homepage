@@ -94,6 +94,7 @@ const Header = styled.div`
   }
   img {
     width: 40px;
+    object-fit: contain;
     @media (max-width: 1024px) {
       width: 32px;
     }
@@ -112,7 +113,7 @@ const Content = styled.div`
     width: 600px;
   }
   @media (max-width: 768px) {
-    width: 400px;
+    width: auto;
   }
 `;
 
@@ -141,10 +142,10 @@ const Year = styled.div`
   text-align: center;
   flex-shrink: 0;
   @media (max-width: 1024px) {
-    font-size: 22px;
+    font-size: 24px;
   }
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 

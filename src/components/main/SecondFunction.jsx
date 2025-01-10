@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import React from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
@@ -56,7 +57,7 @@ const HeaderContainer = styled(SlideUpDiv)`
     }
   }
 
-  h1 {
+  h4 {
     font-size: 40px;
     line-height: 120%;
     font-weight: 500;
@@ -120,10 +121,10 @@ const PhoneComment = styled(SlideUpDiv).attrs({ as: "p" })`
   }
 `;
 
-const FirstImage = styled(SlideUpDiv).attrs({ as: "img" })`
+const FirstImage = styled(SlideUpDiv)`
   position: absolute;
-  left: 0;
   bottom: 0;
+  left: 0;
   height: 750px;
   @media (max-width: 1024px) {
     height: 600px;
@@ -132,9 +133,16 @@ const FirstImage = styled(SlideUpDiv).attrs({ as: "img" })`
     position: relative;
     height: 500px;
   }
+  img {
+    top: 50%;
+    left: 50%;
+    object-fit: contain;
+    width: auto; /* 가로 비율 자동 */
+    height: 100%; /* 부모의 높이만큼 채움 */
+  }
 `;
 
-const SecondImage = styled(SlideUpDiv).attrs({ as: "img" })`
+const SecondImage = styled(SlideUpDiv)`
   position: absolute;
   right: 0;
   top: 0;
@@ -145,6 +153,13 @@ const SecondImage = styled(SlideUpDiv).attrs({ as: "img" })`
   @media (max-width: 768px) {
     position: relative;
     height: 500px;
+  }
+  img {
+    top: 50%;
+    left: 50%;
+    object-fit: contain;
+    width: auto; /* 가로 비율 자동 */
+    height: 100%; /* 부모의 높이만큼 채움 */
   }
 `;
 
@@ -167,24 +182,29 @@ export default function SecondFunction() {
     <Container>
       <HeaderContainer ref={headerRef} $isVisible={headerVisible}>
         <p>AI 추천 대화 가이드라인 제공</p>
-        <h1>
+        <h4>
           간단한 스몰토크로 <br />
           신뢰감 UP
-        </h1>
+        </h4>
       </HeaderContainer>
       <ImgContainer>
-        <FirstImage
-          ref={firstImageRef}
-          $isVisible={firstImageVisible}
-          src="/체크리스트.png"
-          alt="체크리스트"
-        />
-        <SecondImage
-          ref={secondImageRef}
-          $isVisible={secondImageVisible}
-          src="/스몰토크.png"
-          alt="스몰토크"
-        />
+        <FirstImage ref={firstImageRef} $isVisible={firstImageVisible}>
+          <Image
+            src="/체크리스트.png"
+            alt="안심하이 기능 2: 대화 가이드라인 제공(체크리스트 페이지 사진)"
+            width={500}
+            height={750}
+          />
+        </FirstImage>
+        <SecondImage ref={secondImageRef} $isVisible={secondImageVisible}>
+          <Image
+            src="/스몰토크.png"
+            alt="안심하이 기능 2: 대화 가이드라인 제공(스몰토크 페이지 사진)"
+            width={500}
+            height={750}
+          />
+        </SecondImage>
+
         <Comment ref={commentRef} $isVisible={commentVisible}>
           지난 대화를 바탕으로 <br />
           자연스럽게 체크리스트를 진행해요

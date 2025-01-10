@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const FooterContainer = styled.footer`
   width: 100%;
-  background-color: #333; /* 배경색 */
-  color: #fff; /* 텍스트 색 */
+  background-color: #333;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +74,7 @@ const LinkContainer = styled.div`
   }
   img {
     width: 20px;
+    object-fit: contain;
     cursor: pointer;
   }
 `;
@@ -83,7 +84,7 @@ const Footer = () => {
     <FooterContainer>
       <ContentWrapper>
         <LogoContainer>
-          <img src="/white-logo.svg" alt="Logo" />
+          <img src="/white-logo.svg" alt="안심하이 로고" />
           <h1>안심하이 SAFE-HI</h1>
         </LogoContainer>
         <InfoContainer>
@@ -95,7 +96,7 @@ const Footer = () => {
         <LinkContainer>
           <p>바로가기 :</p>
           <Link href="https://www.instagram.com/safe__hi/">
-            <img src="/instargram.svg" alt="인스타그램" />
+            <img src="/instargram.svg" alt="인스타그램 바로가기" />
           </Link>
         </LinkContainer>
       </ContentWrapper>

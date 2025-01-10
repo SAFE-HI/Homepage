@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
@@ -37,15 +38,32 @@ const Container = styled(SlideUpDiv)`
     font-weight: 600;
     font-size: 32px;
     line-height: 160%;
+    @media (max-width: 1024px) {
+      font-size: 24px;
+    }
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
   }
 `;
 
 const ContentContainer = styled.div`
   h2 {
-    font-family: "Gmarket Sans";
     font-weight: 500;
     font-size: 26px;
     color: ${({ theme }) => theme.colors.main};
+    @media (max-width: 1024px) {
+      font-size: 20px;
+    }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+  }
+  hr {
+    height: 1px;
+    width: 100%;
+    border: none;
+    background-color: ${({ theme }) => theme.colors.gray3};
   }
   display: flex;
   flex-direction: column;
@@ -67,9 +85,6 @@ const Content = styled.div`
 `;
 
 const Item = styled.div`
-  img {
-    height: 90px;
-  }
   p {
     font-size: 12px;
     color: ${({ theme }) => theme.colors.gray5};
@@ -94,8 +109,17 @@ const Item = styled.div`
   }
 `;
 
-const ImageContent = styled.img`
+const LogoImage = styled(Image)`
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+`;
+
+const CityImage = styled(Image)`
   height: 60px;
+  height: auto;
+  object-fit: contain;
+
   @media (max-width: 768px) {
     height: 40px;
   }
@@ -120,35 +144,67 @@ const EndContainer = () => {
       <h1>안심하이는 다양한 협력 기관과 함께합니다</h1>
       <ContentContainer>
         <h2>기관</h2>
+        <hr />
         <Content>
           <Item>
-            <img src="한국사회보장정보원.png" alt="한국사회보장정보원" />
+            <LogoImage
+              src="/한국사회보장정보원.png"
+              alt="한국사회보장정보원"
+              width={90}
+              height={90}
+            />
             <p>한국사회보장정보원</p>
           </Item>
           <Item>
-            <img src="한국노인인력개발원.png" alt="한국노인인력개발원" />
+            <LogoImage
+              src="/한국노인인력개발원.png"
+              alt="한국노인인력개발원"
+              width={90}
+              height={90}
+            />
             <p>한국노인인력개발원</p>
           </Item>
           <Item>
-            <img src="한국장애인개발원.png" alt="한국장애인개발원" />
+            <LogoImage
+              src="/한국장애인개발원.png"
+              alt="한국장애인개발원"
+              width={90}
+              height={90}
+            />
             <p>한국장애인개발원</p>
           </Item>
           <Item>
-            <img src="아동권리보장원.png" alt="아동권리보장원" />
+            <LogoImage
+              src="/아동권리보장원.png"
+              alt="아동권리보장원"
+              width={90}
+              height={90}
+            />
             <p>아동권리보장원</p>
           </Item>
           <Item>
-            <img src="헬스경향.png" alt="헬스경향" />
+            <LogoImage
+              src="/헬스경향.png"
+              alt="헬스경향"
+              width={90}
+              height={90}
+            />
             <p>헬스경향</p>
           </Item>
         </Content>
       </ContentContainer>
       <ContentContainer>
         <h2>지자체</h2>
+        <hr />
         <ImageContainer>
-          <ImageContent src="영등포구.png" alt="영등포구청" />
-          <ImageContent src="관악구.png" alt="관악구청" />
-          <ImageContent src="양산시.png" alt="양산시청" />
+          <CityImage
+            src="/영등포구.png"
+            alt="영등포구청"
+            width={80}
+            height={80}
+          />
+          <CityImage src="/관악구.png" alt="관악구청" width={80} height={80} />
+          <CityImage src="/양산시.png" alt="양산시청" width={80} height={80} />
         </ImageContainer>
       </ContentContainer>
     </Container>

@@ -48,7 +48,7 @@ const Content = styled.div`
   justify-content: center;
   height: 100%;
   border-radius: 20px;
-  h3 {
+  h2 {
     height: 100%;
     text-align: center;
     color: ${({ theme }) => theme.colors.mainText};
@@ -97,12 +97,12 @@ const Start = ({ id }) => {
     <AnimatedContainer ref={ref} $isVisible={isVisible} id={id}>
       <StartContainer>
         <Content>
-          <h3>
+          <h2>
             안심하이는 웰페어테크 기반의 AI 시스템으로 <br /> 고독사 위험을
             관리하고 예방할 수 있도록 합니다. <br /> 안심하이는 맞춤형 복지 정책
             추천을 통해
             <br /> 복지 사각지대 해소에 앞장서고자 합니다.
-          </h3>
+          </h2>
         </Content>
       </StartContainer>
     </AnimatedContainer>

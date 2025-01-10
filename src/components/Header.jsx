@@ -40,11 +40,12 @@ const LogoContainer = styled.div`
 const Logo = styled.img`
   display: flex;
   align-items: center;
-  width: 3rem;
+  width: 36px;
+  object-fit: contain;
   cursor: pointer;
 `;
 
-const MenuContainer = styled.div`
+const MenuContainer = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +88,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <LogoContainer onClick={moveMainPage}>
-        <Logo src="/logo.svg" alt="safe-hi logo" />
+        <Logo src="/logo.svg" alt="안심하이 로고" />
         <p>안심하이</p>
       </LogoContainer>
       <MenuContainer>

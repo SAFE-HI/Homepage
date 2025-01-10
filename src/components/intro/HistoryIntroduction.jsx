@@ -37,6 +37,7 @@ const Title = styled.div`
 
 const Circle = styled.img`
   width: 40px;
+  object-fit: contain;
   position: absolute;
   z-index: -1;
   @media (max-width: 1024px) {
