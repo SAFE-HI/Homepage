@@ -110,21 +110,34 @@ const Item = styled.div`
 `;
 
 const LogoImage = styled(Image)`
-  width: 90px;
-  height: auto;
-  object-fit: contain;
+  height: 90px;
+  width: auto;
+  @media (max-width: 1024px) {
+    height: 80px;
+  }
+  @media (max-width: 768px) {
+    height: 60px;
+  }
+  img {
+    object-fit: contain;
+    width: auto;
+    height: 100%;
+  }
 `;
 
 const CityImage = styled(Image)`
   height: 60px;
-  height: auto;
-  object-fit: contain;
-
-  @media (max-width: 768px) {
+  width: auto;
+  @media (max-width: 1024px) {
     height: 40px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 768px) {
     height: 30px;
+  }
+  img {
+    object-fit: contain;
+    width: auto;
+    height: 100%;
   }
 `;
 
@@ -200,11 +213,21 @@ const EndContainer = () => {
           <CityImage
             src="/영등포구.png"
             alt="영등포구청"
-            width={80}
-            height={80}
+            width={120}
+            height={100}
           />
-          <CityImage src="/관악구.png" alt="관악구청" width={80} height={80} />
-          <CityImage src="/양산시.png" alt="양산시청" width={80} height={80} />
+          <CityImage
+            src="/관악구.png"
+            alt="관악구청"
+            width={120}
+            height={100}
+          />
+          <CityImage
+            src="/양산시.png"
+            alt="양산시청"
+            width={120}
+            height={100}
+          />
         </ImageContainer>
       </ContentContainer>
     </Container>

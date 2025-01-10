@@ -105,7 +105,7 @@ const Item = styled(SlideUpDiv)`
     transform: scale(1.1);
   }
   @media (max-width: 768px) {
-    background-color: ${({ theme }) => theme.colors.sub3};
+    background-color: ${({ theme }) => theme.colors.gray1};
   }
 `;
 
@@ -118,7 +118,7 @@ const EffectContainer = () => {
   return (
     <Container>
       <Header ref={ref} $isVisible={isVisible}>
-        <h1>왜 안심하이가 필요할까요?</h1>
+        <h1>안심하이가 왜 필요할까요?</h1>
       </Header>
       <ContentContainer>
         <Content>

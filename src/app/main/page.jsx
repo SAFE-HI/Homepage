@@ -29,13 +29,11 @@ const Background = styled.div`
 
 const ContentContainer = styled.main`
   padding: 150px 10%;
-  padding-top: 220px;
+  padding-top: 35vh;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
   @media (max-width: 1024px) {
-    padding-top: 220px;
-    padding-bottom: 100px;
     align-items: center;
   }
   @media (max-width: 768px) {

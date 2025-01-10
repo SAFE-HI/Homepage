@@ -122,11 +122,10 @@ const Section = styled(SlideUpDiv)`
   justify-content: space-between;
   padding: 40px;
   background-color: #f9f9f9;
-  width: 100%;
   box-sizing: border-box;
   border-radius: 20px;
 
-  @media (max-width: 900px) {
+  @media (max-width: 768px) {
     flex-direction: column;
     gap: 20px;
   }
