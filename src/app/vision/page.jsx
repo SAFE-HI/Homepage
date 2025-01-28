@@ -2,7 +2,7 @@
 import Header from "../../components/Header";
 import styled from "styled-components";
 import Footer from "../../components/Footer";
-import VisionContent from "@/components/vision/VisionContent";
+import VisionContent from "../../components/vision/VisionContent";
 
 const Container = styled.div`
   width: 100%;
