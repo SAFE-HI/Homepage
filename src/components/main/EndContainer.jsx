@@ -206,7 +206,7 @@ const EndContainer = () => {
           </Item>
         </Content>
       </ContentContainer>
-      <ContentContainer>
+      {/* <ContentContainer>
         <h2>지자체</h2>
         <hr />
         <ImageContainer>
@@ -229,7 +229,7 @@ const EndContainer = () => {
             height={100}
           />
         </ImageContainer>
-      </ContentContainer>
+      </ContentContainer> */}
     </Container>
   );
 };

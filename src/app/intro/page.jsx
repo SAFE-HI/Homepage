@@ -72,7 +72,7 @@ const Button = styled.button`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 50px;
 `;
 
 export default function IntroductionPage() {
