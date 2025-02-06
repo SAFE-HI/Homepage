@@ -25,7 +25,7 @@ const SlideUpDiv = styled.div`
 const Container = styled(SlideUpDiv)`
   width: 100%;
   box-sizing: border-box;
-  padding: 50px 100px;
+  padding: 50px 40px;
   display: flex;
   flex-direction: column;
   gap: 40px;
