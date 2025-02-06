@@ -34,7 +34,6 @@ const HeaderContainer = styled.header`
   }
   p {
     font-size: 16px;
-    font-family: "Gmarket Sans";
     font-weight: 300;
     color: white;
     line-height: 160%;

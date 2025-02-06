@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  padding: 80px 150px;
+  padding: 50px 150px;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 40px;
   @media (max-width: 1024px) {
-    padding: 80px;
+    padding: 50px 80px;
   }
   @media (max-width: 768px) {
-    padding: 40px;
+    padding: 50px 40px;
   }
 `;
 
@@ -22,7 +22,7 @@ const Title = styled.div`
   gap: 20px;
   h1 {
     padding-left: 25px;
-    padding-top: 20px;
+    padding-top: 15px;
     font-size: 35px;
     color: ${({ theme }) => theme.colors.mainText};
     @media (max-width: 1024px) {
@@ -40,8 +40,9 @@ const Title = styled.div`
     padding-left: 25px;
     font-size: 16px;
     line-height: 150%;
-    font-weight: 300;
+    font-weight: 400;
     word-break: keep-all;
+    color: ${({ theme }) => theme.colors.mainText};
   }
 `;
 
@@ -76,7 +77,7 @@ const ContentContainer = styled.div`
   }
   h2 {
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 500;
   }
   h3 {
     font-size: 14px;

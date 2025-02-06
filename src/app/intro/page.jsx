@@ -34,7 +34,6 @@ const HeaderContainer = styled.header`
   }
   p {
     font-size: 16px;
-    font-family: "Gmarket Sans";
     font-weight: 300;
     color: white;
     line-height: 160%;
@@ -72,7 +71,6 @@ const Button = styled.button`
 const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 50px;
 `;
 
 export default function IntroductionPage() {
