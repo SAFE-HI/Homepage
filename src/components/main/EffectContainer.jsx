@@ -24,12 +24,15 @@ const SlideUpDiv = styled.div`
 const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding: 50px 40px;
+  padding: 50px 100px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   position: relative;
   align-items: center;
+  @media (max-width: 1024px) {
+    padding: 50px 40px;
+  }
 `;
 
 const Header = styled(SlideUpDiv)`
@@ -38,13 +41,13 @@ const Header = styled(SlideUpDiv)`
     word-break: keep-all;
     color: ${({ theme }) => theme.colors.mainText};
     font-weight: 700;
-    font-size: 32px;
+    font-size: 40px;
     line-height: 160%;
     @media (max-width: 1024px) {
-      font-size: 24px;
+      font-size: 32px;
     }
     @media (max-width: 768px) {
-      font-size: 20px;
+      font-size: 24px;
     }
   }
 `;
@@ -103,9 +106,9 @@ const Item = styled(SlideUpDiv)`
   &:hover {
     transform: scale(1.1);
   }
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     background-color: ${({ theme }) => theme.colors.gray1};
-  }
+  } */
 `;
 
 const EffectContainer = () => {
