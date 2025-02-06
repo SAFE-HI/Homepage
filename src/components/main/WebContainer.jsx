@@ -28,17 +28,16 @@ const Container = styled.div`
   box-sizing: border-box;
   min-height: 100vh;
   background-color: white;
-  padding: 100px;
+  padding: 50px 100px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
   @media (max-width: 1024px) {
-    gap: 80px;
     padding-left: 80px;
     padding-right: 80px;
   }
   @media (max-width: 768px) {
-    gap: 60px;
+    gap: 30px;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -54,7 +53,7 @@ const Header = styled.div`
     color: #fb5457;
     text-align: center;
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 700;
     white-space: nowrap;
     @media (max-width: 1024px) {
       font-size: 32px;
@@ -64,10 +63,10 @@ const Header = styled.div`
     }
   }
   p {
-    color: #101010;
+    color: ${({ theme }) => theme.colors.mainText};
     text-align: center;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     line-height: 25px;
     word-break: keep-all;
     @media (max-width: 1024px) {
@@ -84,7 +83,6 @@ const Logo = styled.div`
     margin: 0;
     color: #fb5457;
     text-align: center;
-    font-family: "Gmarket Sans";
     font-size: 16px;
     font-weight: 400;
     @media (max-width: 1024px) {
@@ -135,18 +133,17 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   padding-right: 20px;
-  gap: 10px;
-  @media (max-width: 900px) {
+  gap: 5px;
+  @media (max-width: 768px) {
     padding-right: 0;
     text-align: center;
   }
 `;
 
 const Number = styled.h1`
-  font-size: 50px;
-  font-weight: bold;
+  font-size: 80px;
+  font-weight: 900;
   color: ${({ theme }) => theme.colors.gray3};
-
   @media (max-width: 900px) {
     font-size: 80px;
     left: 0;
@@ -161,7 +158,6 @@ const Title = styled.h2`
   color: ${({ theme }) => theme.colors.mainText};
   margin-bottom: 10px;
   line-height: 120%;
-  font-weight: 600;
   word-break: keep-all;
   @media (max-width: 1024px) {
     font-size: 24px;

@@ -49,8 +49,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px;
-  gap: 80px;
+  padding: 50px 100px;
+  gap: 40px;
 `;
 
 const HeaderContainer = styled.div`
@@ -77,12 +77,10 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
   p {
     margin: 0;
     color: #fb5457;
     text-align: center;
-    font-family: "Gmarket Sans";
     font-size: 16px;
     font-weight: 400;
     @media (max-width: 1024px) {
@@ -153,7 +151,7 @@ const Events = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: 50px;
+  gap: 40px;
   &:before {
     content: "";
     position: absolute;
@@ -195,6 +193,7 @@ const Event = styled.div`
   h4 {
     margin: 0;
     font-size: 16px;
+    font-weight: 400;
     color: ${({ theme }) => theme.colors.subText};
     @media (max-width: 1024px) {
       font-size: 12px;
@@ -208,6 +207,7 @@ const Event = styled.div`
     font-size: 20px;
     color: ${({ theme }) => theme.colors.mainText};
     white-space: nowrap;
+    font-weight: 500;
     @media (max-width: 1024px) {
       font-size: 18px;
     }

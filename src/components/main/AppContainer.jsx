@@ -29,16 +29,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 100px;
-  gap: 100px;
+  padding: 50px 100px;
+  gap: 40px;
   align-items: center;
   @media (max-width: 1024px) {
-    gap: 80px;
+    gap: 30px;
     padding-left: 80px;
     padding-right: 80px;
   }
   @media (max-width: 768px) {
-    gap: 60px;
     padding-left: 40px;
     padding-right: 40px;
   }
@@ -48,13 +47,13 @@ const ContentContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 300px;
+  gap: 120px;
   align-items: center;
   @media (max-width: 1024px) {
-    gap: 200px;
+    gap: 100px;
   }
   @media (max-width: 768px) {
-    gap: 150px;
+    gap: 80px;
   }
 `;
 
@@ -74,19 +73,19 @@ const Header = styled.div`
     color: #fb5457;
     text-align: center;
     font-size: 40px;
-    font-weight: 600;
+    font-weight: 700;
     @media (max-width: 1024px) {
       font-size: 32px;
     }
     @media (max-width: 768px) {
-      font-size: 22px;
+      font-size: 24px;
     }
   }
   p {
-    color: #101010;
+    color: ${({ theme }) => theme.colors.mainText};
     text-align: center;
     font-size: 18px;
-    font-weight: 300;
+    font-weight: 400;
     white-space: nowrap;
     @media (max-width: 1024px) {
       font-size: 16px;
@@ -102,7 +101,6 @@ const Logo = styled.div`
     margin: 0;
     color: #fb5457;
     text-align: center;
-    font-family: "Gmarket Sans";
     font-size: 16px;
     font-weight: 400;
     @media (max-width: 1024px) {

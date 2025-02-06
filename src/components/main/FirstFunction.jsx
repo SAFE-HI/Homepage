@@ -50,7 +50,7 @@ const Header = styled.div`
   p {
     font-size: 20px;
     line-height: 120%;
-    font-weight: 400;
+    font-weight: 500;
     color: ${({ theme }) => theme.colors.sub1};
     @media (max-width: 1024px) {
       font-size: 16px;
@@ -63,13 +63,13 @@ const Header = styled.div`
   h4 {
     font-size: 40px;
     line-height: 120%;
-    font-weight: 500;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.mainText};
     @media (max-width: 1024px) {
-      font-size: 34px;
+      font-size: 32px;
     }
     @media (max-width: 768px) {
-      font-size: 28px;
+      font-size: 24px;
     }
   }
 `;
@@ -144,7 +144,7 @@ const CombinedComment = styled(SlideUpDiv).attrs({ as: "h4" })`
   @media (max-width: 768px) {
     display: block;
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 150%;
     font-weight: 400;
     word-break: keep-all;
@@ -180,8 +180,8 @@ export default function FirstFunction() {
           ref={combinedCommentRef}
           $isVisible={combinedCommentVisible}
         >
-          AI를 활용하여 복지 대상자의 대화 내용 실시간으로 분석, 맞춤형 복지
-          서비스 추천 그리고 추천 이유 분석까지 한번에!
+          AI를 활용하여 복지 대상자의 대화 내용 실시간으로 분석, <br />
+          맞춤형 복지 서비스 추천 그리고 추천 이유 분석까지 한번에!
         </CombinedComment>
       </HeaderContainer>
       <ImgContainer>

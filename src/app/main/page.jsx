@@ -23,7 +23,7 @@ const bounceAnimation = keyframes`
 const Background = styled.div`
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, #fdd8da 95%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #faadb0 100%);
   overflow: hidden;
 `;
 
@@ -49,7 +49,7 @@ const Content = styled.div`
   h1 {
     color: ${({ theme }) => theme.colors.mainText};
     font-size: 50px;
-    font-weight: 500;
+    font-weight: 700;
     line-height: 120%;
     margin: 0;
     white-space: nowrap;

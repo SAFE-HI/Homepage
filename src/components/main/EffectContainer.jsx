@@ -24,10 +24,10 @@ const SlideUpDiv = styled.div`
 const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
-  padding: 12%;
+  padding: 50px 100px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 40px;
   position: relative;
   align-items: center;
 `;
@@ -37,7 +37,7 @@ const Header = styled(SlideUpDiv)`
     text-align: center;
     word-break: keep-all;
     color: ${({ theme }) => theme.colors.mainText};
-    font-weight: 600;
+    font-weight: 700;
     font-size: 32px;
     line-height: 160%;
     @media (max-width: 1024px) {
@@ -62,8 +62,6 @@ const Content = styled.div`
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
   gap: 30px;
-  padding: 20px 0;
-
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
@@ -76,7 +74,7 @@ const Item = styled(SlideUpDiv)`
   }
   h2 {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.mainText};
     white-space: nowrap;
     line-height: 160%;
@@ -88,6 +86,7 @@ const Item = styled(SlideUpDiv)`
     text-align: left;
     word-break: keep-all;
     line-height: 160%;
+    font-weight: 500;
   }
   display: flex;
   flex-direction: column;

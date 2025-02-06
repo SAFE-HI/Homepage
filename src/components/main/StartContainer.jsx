@@ -37,7 +37,7 @@ const StartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px;
+  padding: 0px 100px;
   gap: 50px;
   justify-content: center;
 `;

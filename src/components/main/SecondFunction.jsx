@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
+import useHorizontalScrollLock from "../../hooks/useHorizontalScrollLock";
 
 const SlideUpDiv = styled.div`
   /* 초기 상태 (화면에 보이지 않을 때) */
@@ -47,7 +48,7 @@ const HeaderContainer = styled(SlideUpDiv)`
   p {
     font-size: 20px;
     line-height: 120%;
-    font-weight: 400;
+    font-weight: 500;
     color: ${({ theme }) => theme.colors.sub1};
     @media (max-width: 1024px) {
       font-size: 16px;
@@ -60,7 +61,7 @@ const HeaderContainer = styled(SlideUpDiv)`
   h4 {
     font-size: 40px;
     line-height: 120%;
-    font-weight: 500;
+    font-weight: 600;
     color: ${({ theme }) => theme.colors.mainText};
     @media (max-width: 1024px) {
       font-size: 34px;
@@ -113,7 +114,7 @@ const PhoneComment = styled(SlideUpDiv).attrs({ as: "p" })`
   @media (max-width: 768px) {
     display: block;
     text-align: left;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 150%;
     font-weight: 400;
     word-break: keep-all;
@@ -165,6 +166,8 @@ const SecondImage = styled(SlideUpDiv)`
 
 export default function SecondFunction() {
   const [headerRef, headerVisible] = useOnScreen({ threshold: 0.2 });
+  const imgContainerRef = useHorizontalScrollLock(); // 휠 로직 hook
+
   const [firstImageRef, firstImageVisible] = useOnScreen({
     threshold: 0.2,
   });
@@ -187,7 +190,7 @@ export default function SecondFunction() {
           신뢰감 UP
         </h4>
       </HeaderContainer>
-      <ImgContainer>
+      <ImgContainer ref={imgContainerRef}>
         <FirstImage ref={firstImageRef} $isVisible={firstImageVisible}>
           <Image
             src="/체크리스트.png"

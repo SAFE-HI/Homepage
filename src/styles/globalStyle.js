@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-@font-face {
+/* @font-face {
         font-family: 'Gmarket Sans';
         font-weight: 400;
         font-style: normal;
@@ -25,14 +25,21 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 600;
         font-style: normal;
         src: url('/fonts/GmarketSansTTFBold.ttf') format('ttf');
-    }
+    } */
+
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
 
   
   html,
   body {
     max-width: 100vw;
     /* overflow-x: hidden; */
-    font-family: 'Gmarket Sans';
+    font-family: 'Pretendard';
     font-size: 16px;
     margin: 0;
     overflow-y: auto; /* 반드시 필요 */

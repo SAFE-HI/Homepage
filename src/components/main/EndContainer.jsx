@@ -25,17 +25,17 @@ const SlideUpDiv = styled.div`
 const Container = styled(SlideUpDiv)`
   width: 100%;
   box-sizing: border-box;
-  padding: 12%;
+  padding: 50px 100px;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 40px;
   position: relative;
   align-items: center;
   h1 {
     text-align: center;
     word-break: keep-all;
     color: ${({ theme }) => theme.colors.mainText};
-    font-weight: 600;
+    font-weight: 700;
     font-size: 32px;
     line-height: 160%;
     @media (max-width: 1024px) {
@@ -102,11 +102,6 @@ const Item = styled.div`
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-
-  &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  }
 `;
 
 const LogoImage = styled(Image)`
@@ -156,7 +151,7 @@ const EndContainer = () => {
     <Container ref={ref} $isVisible={isVisible}>
       <h1>안심하이는 다양한 협력 기관과 함께합니다</h1>
       <ContentContainer>
-        <h2>기관</h2>
+        {/* <h2>기관</h2> */}
         <hr />
         <Content>
           <Item>
