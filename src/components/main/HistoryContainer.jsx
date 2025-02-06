@@ -188,32 +188,6 @@ const Event = styled.div`
   @media (max-width: 768px) {
     padding: 0 12px;
   }
-
-  h4 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.subText};
-    @media (max-width: 1024px) {
-      font-size: 12px;
-    }
-    @media (max-width: 768px) {
-      font-size: 10px;
-    }
-  }
-
-  p {
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors.mainText};
-    white-space: nowrap;
-    font-weight: 500;
-    @media (max-width: 1024px) {
-      font-size: 18px;
-    }
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
-  }
   transition: scale 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
@@ -228,6 +202,32 @@ const Event = styled.div`
   &:hover {
     transform: scale(1.05);
     cursor: pointer;
+  }
+`;
+
+const DateText = styled.p`
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.subText};
+  @media (max-width: 1024px) {
+    font-size: 14px;
+  }
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const Description = styled.p`
+  font-size: 20px;
+  color: ${({ theme }) => theme.colors.mainText};
+  white-space: nowrap;
+  font-weight: 500;
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -269,8 +269,8 @@ const History = () => {
             <Events $isVisible={isVisible}>
               {historyData.map((item, index) => (
                 <Event key={index} $delay={index * 0.4} $isVisible={isVisible}>
-                  <h4>{item.date}</h4>
-                  <p>{item.description}</p>
+                  <DateText>{item.date}</DateText>
+                  <Description>{item.description}</Description>
                 </Event>
               ))}
             </Events>

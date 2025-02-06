@@ -125,30 +125,31 @@ const Event = styled.div`
   @media (max-width: 768px) {
     padding: 0 12px;
   }
+`;
 
-  h4 {
-    margin: 0;
-    font-size: 15px;
-    color: ${({ theme }) => theme.colors.subText};
-    white-space: nowrap;
-    @media (max-width: 1024px) {
-      font-size: 12px;
-    }
-    @media (max-width: 768px) {
-      font-size: 10px;
-    }
+const DateText = styled.p`
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.subText};
+  @media (max-width: 1024px) {
+    font-size: 14px;
   }
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
 
-  p {
-    font-size: 20px;
-    color: ${({ theme }) => theme.colors.mainText};
-    white-space: nowrap;
-    @media (max-width: 1024px) {
-      font-size: 18px;
-    }
-    @media (max-width: 768px) {
-      font-size: 14px;
-    }
+const Description = styled.p`
+  font-size: 20px;
+  color: ${({ theme }) => theme.colors.mainText};
+  white-space: nowrap;
+  font-weight: 500;
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -180,8 +181,8 @@ export default function HistoryIntroduction() {
           <Events>
             {historyData.map((item, index) => (
               <Event key={index}>
-                <h4>{item.date}</h4>
-                <p>{item.description}</p>
+                <DateText>{item.date}</DateText>
+                <Description>{item.description}</Description>
               </Event>
             ))}
           </Events>
