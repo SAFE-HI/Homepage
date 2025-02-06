@@ -4,11 +4,11 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  padding: 150px;
+  padding: 100px;
   padding-top: 120px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 60px;
   @media (max-width: 1024px) {
     padding: 120px 80px;
   }
@@ -20,6 +20,7 @@ const Container = styled.div`
 const Vision = styled.div`
   text-align: center;
   font-size: 36px;
+  font-weight: 600;
   line-height: 180%;
   cursor: pointer;
   @media (max-width: 768px) {
@@ -81,29 +82,29 @@ const Title = styled.h1`
   font-size: 32px;
 `;
 
-const Logo = styled.div`
-  img {
-    width: 40px;
-    object-fit: contain;
-  }
-  p {
-    color: #fb5457;
-    text-align: center;
-    font-family: "Gmarket Sans";
-    margin: 0;
-    font-size: 16px;
-    font-weight: 400;
-    @media (max-width: 1024px) {
-      font-size: 14px;
-    }
-    @media (max-width: 768px) {
-      font-size: 12px;
-    }
-  }
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+// const Logo = styled.div`
+//   img {
+//     width: 40px;
+//     object-fit: contain;
+//   }
+//   p {
+//     color: #fb5457;
+//     text-align: center;
+//     font-family: "Gmarket Sans";
+//     margin: 0;
+//     font-size: 16px;
+//     font-weight: 400;
+//     @media (max-width: 1024px) {
+//       font-size: 14px;
+//     }
+//     @media (max-width: 768px) {
+//       font-size: 12px;
+//     }
+//   }
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -112,10 +113,11 @@ const HeaderContainer = styled.div`
 `;
 
 const Number = styled.h2`
-  font-size: 70px;
+  font-size: 80px;
   position: absolute;
-  top: 15px;
+  top: 0px;
   left: 15px;
+  font-weight: 900;
   color: ${({ $isActive, theme }) =>
     $isActive ? theme.colors.sub2 : "rgba(217, 217, 217, 0.6)"};
   z-index: -3;
@@ -160,10 +162,10 @@ export default function VisionContent() {
   return (
     <Container>
       <HeaderContainer>
-        <Logo>
+        {/* <Logo>
           <img src="/logo.svg" alt="안심하이 로고" />
           <p>비전</p>
-        </Logo>
+        </Logo> */}
         <Vision>
           {texts.map((text, idx) => (
             <Text

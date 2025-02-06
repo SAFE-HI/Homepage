@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
