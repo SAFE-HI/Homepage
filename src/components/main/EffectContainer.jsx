@@ -43,6 +43,7 @@ const Header = styled(SlideUpDiv)`
     font-weight: 700;
     font-size: 40px;
     line-height: 160%;
+    position: relative;
     @media (max-width: 1024px) {
       font-size: 32px;
     }

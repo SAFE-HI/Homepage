@@ -29,9 +29,6 @@ const Vision = styled.div`
 `;
 
 const Text = styled.p`
-  &:hover {
-    color: ${({ theme }) => theme.colors.main};
-  }
   color: ${({ theme }) => theme.colors.mainText};
   transition: all 0.3s ease;
 `;
@@ -58,19 +55,20 @@ const Content = styled.div`
     height: 80px;
     object-fit: contain;
   }
-  background-color: ${({ $isActive, theme }) =>
-    $isActive ? theme.colors.sub3 : "transparent"};
   transform: ${({ $isActive }) => ($isActive ? "scale(1.05)" : "transparent")};
   padding: 30px;
   border-radius: 20px;
   transition: all 0.3s ease;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.sub3};
+  }
 `;
 
 const Description = styled.p`
   font-size: 14px;
   line-height: 160%;
   word-break: keep-all;
-  font-weight: 300;
+  font-weight: 400;
   white-space: pre-line;
 `;
 
@@ -118,20 +116,14 @@ const Number = styled.h2`
   top: 0px;
   left: 15px;
   font-weight: 900;
-  color: ${({ $isActive, theme }) =>
-    $isActive ? theme.colors.sub2 : "rgba(217, 217, 217, 0.6)"};
+  color: rgba(217, 217, 217, 0.6);
   z-index: -3;
+  &:hover {
+    color: ${({ theme }) => theme.colors.sub2};
+  }
 `;
 
 export default function VisionContent() {
-  const [hoverIndex, setHoverIndex] = useState(null);
-
-  const texts = [
-    "모두를 위한 따뜻한 돌봄",
-    "기술로 함께하는",
-    "지속 가능한 복지 세상",
-  ];
-
   const contents = [
     {
       subTitle: "모두를 위한 따뜻한 돌봄",
@@ -167,7 +159,7 @@ export default function VisionContent() {
           <p>비전</p>
         </Logo> */}
         <Vision>
-          {texts.map((text, idx) => (
+          {/* {texts.map((text, idx) => (
             <Text
               key={idx}
               onMouseEnter={() => setHoverIndex(idx)}
@@ -175,17 +167,17 @@ export default function VisionContent() {
             >
               {text}
             </Text>
-          ))}
+          ))} */}
+          <Text>
+            {" "}
+            모두를 위한 따뜻한 돌봄, <br />
+            기술로 함께하는 지속 가능한 복지 세상
+          </Text>
         </Vision>
       </HeaderContainer>
-
       <ContentContainer>
         {contents.map((item, idx) => (
-          <Content
-            key={idx}
-            // hoverIndex와 idx가 같으면 배경색 변경
-            $isActive={hoverIndex === idx}
-          >
+          <Content key={idx}>
             <div
               style={{
                 display: "flex",
@@ -194,7 +186,7 @@ export default function VisionContent() {
                 gap: "5px",
               }}
             >
-              <Number $isActive={hoverIndex === idx}>0{idx + 1}</Number>
+              <Number>0{idx + 1}</Number>
               <SubTitle>{item.subTitle}</SubTitle>
               <Title>{item.title}</Title>
             </div>

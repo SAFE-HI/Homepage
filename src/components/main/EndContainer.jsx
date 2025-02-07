@@ -25,12 +25,18 @@ const SlideUpDiv = styled.div`
 const Container = styled(SlideUpDiv)`
   width: 100%;
   box-sizing: border-box;
-  padding: 50px 40px;
+  padding: 50px 100px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   position: relative;
   align-items: center;
+  @media (max-width: 1024px) {
+    padding: 50px 40px;
+  }
+  @media (max-width: 768px) {
+    padding: 50px 40px;
+  }
   h1 {
     text-align: center;
     word-break: keep-all;
