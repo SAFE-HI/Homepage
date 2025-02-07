@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
-/* @font-face {
+@font-face {
         font-family: 'Gmarket Sans';
         font-weight: 400;
         font-style: normal;
@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
         font-weight: 600;
         font-style: normal;
         src: url('/fonts/GmarketSansTTFBold.ttf') format('ttf');
-    } */
+    }
 
   @font-face {
     font-family: 'Pretendard-Regular';

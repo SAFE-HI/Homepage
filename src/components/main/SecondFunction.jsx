@@ -79,12 +79,6 @@ const ImgContainer = styled.div`
   width: 100%;
   height: 100%;
   gap: 20px;
-  @media (max-width: 768px) {
-    overflow-x: scroll; /* 가로 스크롤 */
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    white-space: nowrap;
-  }
 `;
 
 const Comment = styled(SlideUpDiv).attrs({ as: "p" })`
@@ -132,7 +126,7 @@ const FirstImage = styled(SlideUpDiv)`
   }
   @media (max-width: 768px) {
     position: relative;
-    height: 500px;
+    display: none;
   }
   img {
     top: 50%;
@@ -154,6 +148,7 @@ const SecondImage = styled(SlideUpDiv)`
   @media (max-width: 768px) {
     position: relative;
     height: 500px;
+    margin: 0 auto;
   }
   img {
     top: 50%;
@@ -190,6 +185,10 @@ export default function SecondFunction() {
           신뢰감 UP
         </h4>
       </HeaderContainer>
+      <PhoneComment ref={phoneCommentRef} $isVisible={phoneCommentVisible}>
+        지난 대화를 바탕으로 <br />
+        자연스럽게 체크리스트를 진행해요
+      </PhoneComment>
       <ImgContainer ref={imgContainerRef}>
         <FirstImage ref={firstImageRef} $isVisible={firstImageVisible}>
           <Image
@@ -213,10 +212,6 @@ export default function SecondFunction() {
           자연스럽게 체크리스트를 진행해요
         </Comment>
       </ImgContainer>
-      <PhoneComment ref={phoneCommentRef} $isVisible={phoneCommentVisible}>
-        지난 대화를 바탕으로 <br />
-        자연스럽게 체크리스트를 진행해요
-      </PhoneComment>
     </Container>
   );
 }

@@ -43,7 +43,6 @@ const AnimatedContainer = styled.div`
 const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
-  min-height: 100vh;
   background-color: white;
   display: flex;
   flex-direction: column;
