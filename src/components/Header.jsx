@@ -131,7 +131,7 @@ const SideMenuList = styled.div`
   padding: 30px;
   p {
     color: black;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     &:hover {
       text-decoration: underline;

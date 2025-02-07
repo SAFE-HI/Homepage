@@ -46,7 +46,7 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
   h3 {
     margin: 0;
     color: #fb5457;
