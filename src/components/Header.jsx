@@ -116,7 +116,7 @@ const BackGround = styled.div`
 `;
 
 const IconContainer = styled.div`
-  padding: 20px;
+  padding: 30px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -127,11 +127,11 @@ const SideMenuList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 40px;
+  gap: 50px;
   padding: 30px;
   p {
     color: black;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     &:hover {
       text-decoration: underline;
