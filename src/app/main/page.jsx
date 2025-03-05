@@ -23,7 +23,8 @@ const bounceAnimation = keyframes`
 const Background = styled.div`
   width: 100vw;
   min-height: 100vh;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, #faadb0 100%);
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 10%, #faadb0 70%);
+  align-items: flex-end;
   overflow: hidden;
 `;
 
@@ -73,14 +74,24 @@ const Content = styled.div`
 
 const Mockup = styled.div`
   position: absolute;
-  top: 80px;
-  right: 0;
   width: 100vw;
+  top: 70px;
   height: calc(100vh - 70px);
-  overflow: hidden;
   z-index: -1; /* 콘텐츠 뒤에 위치 */
+  left: 0;
   @media (max-width: 1024px) {
     visibility: hidden;
+  }
+
+  img {
+    height: 100%;
+    position: absolute;
+    mask-image: linear-gradient(
+      -90deg,
+      rgba(0, 0, 0, 1) 30%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    right: 0;
   }
 `;
 
@@ -178,13 +189,7 @@ export default function Main() {
             </ImageContainer>
           </ButtonContainer>
           <Mockup>
-            <Image
-              src="/background.png"
-              alt="안심하이 서비스 앱 사진"
-              fill
-              style={{ objectFit: "cover" }}
-              priority
-            />
+            <img src="/안심하이.png" alt="안심하이 배경 이미지" />
           </Mockup>
         </ContentContainer>
         <More onClick={scrollToNext}>

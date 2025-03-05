@@ -61,7 +61,7 @@ const Header = styled.div`
   }
 
   h4 {
-    font-size: 40px;
+    font-size: 36px;
     line-height: 120%;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.mainText};
@@ -87,12 +87,12 @@ const ImgContainer = styled.div`
 
 const FirstImage = styled(SlideUpDiv)`
   /* 높이는 반응형으로 변화 */
-  height: 750px;
+  height: 650px;
   @media (max-width: 1024px) {
-    height: 600px;
+    height: 540px;
   }
   @media (max-width: 768px) {
-    height: 500px;
+    height: 450px;
   }
   position: relative;
   img {

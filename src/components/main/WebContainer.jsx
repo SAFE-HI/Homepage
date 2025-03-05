@@ -115,16 +115,45 @@ const HeaderContainer = styled(SlideUpDiv)`
 
 const Section = styled(SlideUpDiv)`
   display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  border-radius: 20px;
+  gap: 20px;
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const PhoneSection = styled(SlideUpDiv)`
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 50px;
   background-color: #f9f9f9;
   box-sizing: border-box;
   border-radius: 20px;
+  gap: 20px;
+`;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: 20px;
+const DesktopSection = styled(SlideUpDiv)`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #f9f9f9;
+  box-sizing: border-box;
+  border-radius: 20px;
+  gap: 20px;
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;
 
@@ -133,7 +162,7 @@ const Content = styled.div`
   flex-direction: column;
   padding-right: 20px;
   gap: 5px;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding-right: 0;
     text-align: center;
   }
@@ -179,7 +208,7 @@ const ImageContainer = styled.div`
 
   /* 이미지 래퍼에 대한 스타일 */
   .web-image {
-    width: 450px; /* 정적 크기, 미디어쿼리로 조정 */
+    width: 500px; /* 정적 크기, 미디어쿼리로 조정 */
     border-radius: 10px;
     object-fit: contain; /* 보존 */
     @media (max-width: 768px) {
@@ -234,7 +263,33 @@ const WebContainer = () => {
           />
         </ImageContainer>
       </Section>
-      <Section ref={secondContentRef} $isVisible={secondContentIsVisible}>
+      <DesktopSection
+        ref={secondContentRef}
+        $isVisible={secondContentIsVisible}
+      >
+        <ImageContainer>
+          <Image
+            className="web-image"
+            src="/webMockup2.png"
+            alt="안심하이 웹 기능 2: LED ON/OFF 데이터 모니터링 "
+            width={450}
+            height={300}
+          />
+        </ImageContainer>
+        <Content>
+          <Number>02</Number>
+          <Title>
+            고독사 위험을 <br />
+            선제적으로 관리해요
+          </Title>
+          <Description>
+            5초마다 실시간으로 분석하여 대상자의 생활 패턴을 즉시
+            모니터링합니다.
+          </Description>
+        </Content>
+      </DesktopSection>
+
+      <PhoneSection ref={secondContentRef} $isVisible={secondContentIsVisible}>
         <Content>
           <Number>02</Number>
           <Title>
@@ -255,7 +310,7 @@ const WebContainer = () => {
             height={300}
           />
         </ImageContainer>
-      </Section>
+      </PhoneSection>
     </Container>
   );
 };

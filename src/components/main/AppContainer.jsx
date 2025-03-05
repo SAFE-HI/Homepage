@@ -29,10 +29,10 @@ const Container = styled.div`
   flex-direction: column;
   position: relative;
   padding: 50px 100px;
-  gap: 40px;
+  gap: 60px;
   align-items: center;
   @media (max-width: 1024px) {
-    gap: 30px;
+    gap: 40px;
     padding-left: 80px;
     padding-right: 80px;
   }

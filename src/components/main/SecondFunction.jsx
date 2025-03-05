@@ -59,7 +59,7 @@ const HeaderContainer = styled(SlideUpDiv)`
   }
 
   h4 {
-    font-size: 40px;
+    font-size: 36px;
     line-height: 120%;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.mainText};
@@ -120,9 +120,9 @@ const FirstImage = styled(SlideUpDiv)`
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 750px;
+  height: 650px;
   @media (max-width: 1024px) {
-    height: 600px;
+    height: 540px;
   }
   @media (max-width: 768px) {
     position: relative;
@@ -141,13 +141,13 @@ const SecondImage = styled(SlideUpDiv)`
   position: absolute;
   right: 0;
   top: 0;
-  height: 750px;
+  height: 650px;
   @media (max-width: 1024px) {
-    height: 600px;
+    height: 540px;
   }
   @media (max-width: 768px) {
     position: relative;
-    height: 500px;
+    height: 450px;
     margin: 0 auto;
   }
   img {
