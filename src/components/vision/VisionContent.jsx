@@ -44,6 +44,16 @@ const ContentContainer = styled.div`
   }
 `;
 
+const Number = styled.h2`
+  font-size: 80px;
+  position: absolute;
+  top: 0px;
+  left: 15px;
+  font-weight: 900;
+  color: rgba(217, 217, 217, 0.6);
+  z-index: 0;
+`;
+
 const Content = styled.div`
   position: relative;
   display: flex;
@@ -61,6 +71,9 @@ const Content = styled.div`
   transition: all 0.3s ease;
   &:hover {
     background-color: ${({ theme }) => theme.colors.sub3};
+    ${Number} {
+      color: ${({ theme }) => theme.colors.sub2};
+    }
   }
 `;
 
@@ -74,10 +87,12 @@ const Description = styled.p`
 
 const SubTitle = styled.p`
   white-space: nowrap;
+  z-index: 1;
 `;
 
 const Title = styled.h1`
   font-size: 32px;
+  z-index: 1;
 `;
 
 // const Logo = styled.div`
@@ -108,19 +123,6 @@ const HeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-`;
-
-const Number = styled.h2`
-  font-size: 80px;
-  position: absolute;
-  top: 0px;
-  left: 15px;
-  font-weight: 900;
-  color: rgba(217, 217, 217, 0.6);
-  z-index: -3;
-  &:hover {
-    color: ${({ theme }) => theme.colors.sub2};
-  }
 `;
 
 export default function VisionContent() {
