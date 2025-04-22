@@ -87,7 +87,7 @@ const Footer = () => {
           <h1>안심하이 SAFE-HI</h1>
         </LogoContainer>
         <InfoContainer>
-          <p>사업자 등록번호 : 000-80-00000 | 대표 : 한민우</p>
+          <p>사업자 등록번호 : 000-80-00000 | 대표 : 김민수</p>
           <p>주소 : 서울특별시 중구 필동로1길 30 (04620)</p>
           <p>대표 번호 : 010-0000-0000</p>
           <p>Mail : email@email.com</p>

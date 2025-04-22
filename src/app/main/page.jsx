@@ -49,7 +49,7 @@ const Content = styled.div`
 
   h1 {
     color: ${({ theme }) => theme.colors.mainText};
-    font-size: 50px;
+    font-size: 60px;
     font-weight: 700;
     line-height: 120%;
     margin: 0;
