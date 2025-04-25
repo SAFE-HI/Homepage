@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import useOnScreen from "../../hooks/useOnScreen";
 
@@ -113,25 +113,7 @@ const HeaderContainer = styled(SlideUpDiv)`
   padding: 0 40px;
 `;
 
-const Section = styled(SlideUpDiv)`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 50px;
-  background-color: #f9f9f9;
-  box-sizing: border-box;
-  border-radius: 20px;
-  gap: 20px;
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`;
-
 const PhoneSection = styled(SlideUpDiv)`
-  @media (min-width: 1024px) {
-    display: none;
-  }
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -152,9 +134,6 @@ const DesktopSection = styled(SlideUpDiv)`
   box-sizing: border-box;
   border-radius: 20px;
   gap: 20px;
-  @media (max-width: 1024px) {
-    display: none;
-  }
 `;
 
 const Content = styled.div`
@@ -226,6 +205,17 @@ const WebContainer = () => {
   const [secondContentRef, secondContentIsVisible] = useOnScreen({
     threshold: 0.2,
   });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 1024);
+    };
+
+    handleResize(); // 초기 실행
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <Container>
       <HeaderContainer ref={headerRef} $isVisible={headerIsVisible}>
@@ -241,76 +231,114 @@ const WebContainer = () => {
           </p>
         </Header>
       </HeaderContainer>
-      <Section ref={firstContentRef} $isVisible={firstContentIsVisible}>
-        <Content>
-          <Number>01</Number>
-          <Title>
-            정확한 감정 파악으로 <br />
-            대상자의 심리 상태를 이해해요
-          </Title>
-          <Description>
-            AI는 고독사 위험군의 심리 상태를 분석하여 지자체가 선제적으로 조치를
-            취할 수 있도록 돕습니다.
-          </Description>
-        </Content>
-        <ImageContainer>
-          <Image
-            className="web-image"
-            src="/webMockup.png"
-            alt="안심하이 웹 기능 1: AI 감정 분석으로 심리 상태 객관적 파악"
-            width={450}
-            height={300}
-          />
-        </ImageContainer>
-      </Section>
-      <DesktopSection
-        ref={secondContentRef}
-        $isVisible={secondContentIsVisible}
-      >
-        <ImageContainer>
-          <Image
-            className="web-image"
-            src="/webMockup2.png"
-            alt="안심하이 웹 기능 2: LED ON/OFF 데이터 모니터링 "
-            width={450}
-            height={300}
-          />
-        </ImageContainer>
-        <Content>
-          <Number>02</Number>
-          <Title>
-            고독사 위험을 <br />
-            선제적으로 관리해요
-          </Title>
-          <Description>
-            5초마다 실시간으로 분석하여 대상자의 생활 패턴을 즉시
-            모니터링합니다.
-          </Description>
-        </Content>
-      </DesktopSection>
+      {isMobile ? (
+        <>
+          <PhoneSection
+            ref={firstContentRef}
+            $isVisible={firstContentIsVisible}
+          >
+            <Content>
+              <Number>01</Number>
+              <Title>
+                정확한 감정 파악으로 <br />
+                대상자의 심리 상태를 이해해요
+              </Title>
+              <Description>
+                AI는 고독사 위험군의 심리 상태를 분석하여 지자체가 선제적으로
+                조치를 취할 수 있도록 돕습니다.
+              </Description>
+            </Content>
+            <ImageContainer>
+              <Image
+                className="web-image"
+                src="/webMockup.png"
+                alt="안심하이 웹 기능 1: AI 감정 분석으로 심리 상태 객관적 파악"
+                width={450}
+                height={300}
+              />
+            </ImageContainer>
+          </PhoneSection>
+          <PhoneSection
+            ref={secondContentRef}
+            $isVisible={secondContentIsVisible}
+          >
+            <Content>
+              <Number>02</Number>
+              <Title>
+                고독사 위험을 <br />
+                선제적으로 관리해요
+              </Title>
+              <Description>
+                5초마다 실시간으로 분석하여 대상자의 생활 패턴을 즉시
+                모니터링합니다.
+              </Description>
+            </Content>
+            <ImageContainer>
+              <Image
+                className="web-image"
+                src="/webMockup2.png"
+                alt="안심하이 웹 기능 2: LED ON/OFF 데이터 모니터링 "
+                width={450}
+                height={300}
+              />
+            </ImageContainer>
+          </PhoneSection>
+        </>
+      ) : (
+        <>
+          <DesktopSection
+            ref={firstContentRef}
+            $isVisible={firstContentIsVisible}
+          >
+            <Content>
+              <Number>01</Number>
+              <Title>
+                정확한 감정 파악으로 <br />
+                대상자의 심리 상태를 이해해요
+              </Title>
+              <Description>
+                AI는 고독사 위험군의 심리 상태를 분석하여 지자체가 선제적으로
+                조치를 취할 수 있도록 돕습니다.
+              </Description>
+            </Content>
+            <ImageContainer>
+              <Image
+                className="web-image"
+                src="/webMockup.png"
+                alt="안심하이 웹 기능 1: AI 감정 분석으로 심리 상태 객관적 파악"
+                width={450}
+                height={300}
+              />
+            </ImageContainer>
+          </DesktopSection>
 
-      <PhoneSection ref={secondContentRef} $isVisible={secondContentIsVisible}>
-        <Content>
-          <Number>02</Number>
-          <Title>
-            고독사 위험을 <br />
-            선제적으로 관리해요
-          </Title>
-          <Description>
-            5초마다 실시간으로 분석하여 대상자의 생활 패턴을 즉시
-            모니터링합니다.
-          </Description>
-        </Content>
-        <ImageContainer>
-          <Image
-            className="web-image"
-            src="/webMockup2.png"
-            alt="안심하이 웹 기능 2: LED ON/OFF 데이터 모니터링 "
-            width={450}
-            height={300}
-          />
-        </ImageContainer>
-      </PhoneSection>
+          <DesktopSection
+            ref={secondContentRef}
+            $isVisible={secondContentIsVisible}
+          >
+            <ImageContainer>
+              <Image
+                className="web-image"
+                src="/webMockup2.png"
+                alt="안심하이 웹 기능 2: LED ON/OFF 데이터 모니터링 "
+                width={450}
+                height={300}
+              />
+            </ImageContainer>
+            <Content>
+              <Number>02</Number>
+              <Title>
+                고독사 위험을 <br />
+                선제적으로 관리해요
+              </Title>
+              <Description>
+                5초마다 실시간으로 분석하여 대상자의 생활 패턴을 즉시
+                모니터링합니다.
+              </Description>
+            </Content>
+          </DesktopSection>
+        </>
+      )}
     </Container>
   );
 };
