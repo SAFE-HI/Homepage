@@ -131,13 +131,13 @@ export default function TeamIntroduction() {
           <h3>AI</h3>
           <p>동국대학교 멀티미디어공학과</p>
         </Content>
-
+        {/* 
         <Content>
           <h2>이준학</h2>
           <h3>벡엔드</h3>
 
           <p>KAIST 정보보호대학원 석사과정</p>
-        </Content>
+        </Content> */}
         <Content>
           <h2>이유진</h2>
           <h3>프론트엔드&디자인</h3>
