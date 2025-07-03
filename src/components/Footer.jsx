@@ -87,10 +87,10 @@ const Footer = () => {
           <h1>안심하이 SAFE-HI</h1>
         </LogoContainer>
         <InfoContainer>
-          <p>사업자 등록번호 : 000-80-00000 | 대표 : 김민수</p>
-          <p>주소 : 서울특별시 중구 필동로1길 30 (04620)</p>
-          <p>대표 번호 : 010-0000-0000</p>
-          <p>Mail : email@email.com</p>
+          <p>사업자 등록번호 : 162-62-00908 | 대표 : 김민수</p>
+          <p>주소 : 서울특별시 중구 퇴계로36길 2, 신관동 지하2층 B245호</p>
+          <p>대표 번호 : 010-8225-4024</p>
+          <p>Mail : safehi@safe-hi.co.kr</p>
         </InfoContainer>
         <LinkContainer>
           <p>바로가기 :</p>
