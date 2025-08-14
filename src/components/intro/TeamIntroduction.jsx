@@ -113,23 +113,19 @@ export default function TeamIntroduction() {
       <ContentContainer>
         <Content>
           <h2>한민우</h2>
-          <h3>PM</h3>
-          <p>중앙대학교 소프트웨어벤처 전공</p>
+          <h3>공동 대표 & PM</h3>
         </Content>
         <Content>
           <h2>남예준</h2>
           <h3>사업/기획</h3>
-          <p>경희대학교 호텔경영학과 전공</p>
         </Content>
         <Content>
           <h2>김민수</h2>
-          <h3>AI</h3>
-          <p>동국대학교 정보통신공학과</p>
+          <h3>공동대표 & AI</h3>
         </Content>
         <Content>
           <h2>강병민</h2>
           <h3>AI</h3>
-          <p>동국대학교 멀티미디어공학과</p>
         </Content>
         {/* 
         <Content>
@@ -141,25 +137,18 @@ export default function TeamIntroduction() {
         <Content>
           <h2>이유진</h2>
           <h3>프론트엔드&디자인</h3>
-
-          <p>동국대학교 멀티미디어공학과</p>
         </Content>
         <Content>
           <h2>이정선</h2>
           <h3>프론트엔드&디자인</h3>
-
-          <p>동국대학교 컴퓨터공학과</p>
         </Content>
         <Content>
           <h2>김연우</h2>
           <h3>데이터분석</h3>
-          <p>동국대학교 산업시스템공학과</p>
         </Content>
         <Content>
           <h2>오민석</h2>
           <h3>데이터분석</h3>
-
-          <p>동국대학교 산업시스템공학과</p>
         </Content>
       </ContentContainer>
     </Container>
