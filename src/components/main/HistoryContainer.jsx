@@ -262,6 +262,17 @@ const History = () => {
             꾸준히 성장해오고 있습니다.
           </h2>
         </HeaderContainer>
+        <iframe
+          src="https://www.spatial.io/s/03_SafeHi-68a42cbcab84dda44f2fe817?"
+          style={{
+            width: "100%",
+            height: "600px",
+            border: "0",
+            borderRadius: "12px",
+            margin: "40px 0",
+          }}
+          allow="microphone; camera; clipboard-write;"
+        />
         <Content>
           <TimelineItem>
             <Year>2024</Year>
